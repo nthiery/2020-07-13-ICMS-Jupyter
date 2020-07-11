@@ -6,11 +6,11 @@ A session at [ICMS](http://icms-conference.org/2020), ~~Braunchweig, Germany~~ O
 
 <!--http://icms-conference.org/2020/sessions/!-->
 
-### Session organizers
+## Session organizers
 
 *   [Nicolas M. Thiéry](http://Nicolas.Thiery.name/) (Université Paris-Sud / Paris-Saclay)
 
-### Aim and Scope
+## Aim and Scope
 
 The last years have seen the emergence of the open source web-based
 interactive computing environment [Jupyter](https://jupyter.org)
@@ -36,7 +36,7 @@ in mind.
 ~~It you would like to present a talk (~25 minutes), please submit!~~
 
 
-##### Topics (including, but not limited to)
+## Topics (including, but not limited to)
 
 *   Overview of the Jupyter ecosystem
 *   Use cases in Research and Education: demonstration and feedback from experience
@@ -44,7 +44,7 @@ in mind.
 *   Interactive mathematics with Jupyter widgets
 *   Hands on mini tutorials
 
-### Online format
+## Online format
 
 This session will follow the
 [online format](http://www.iaa.tu-bs.de/AppliedAlgebra/ICMS2020/ICMS2020_LocalInfo.html)
@@ -60,16 +60,16 @@ a speakers talk.
 
 See the talks below for the detailed schedule.
 
-### Interactive session 1, Wednesday July 15th of 2020
+## Interactive session 1, Wednesday July 15th of 2020
 
-#### 16:30: An overview of Jupyter and its ecosystem
+### 16:30: An overview of Jupyter and its ecosystem
 
 Speaker: Nicolas M. Thiéry
 
 In this introductory presentation, we will setup the stage for the
 session by giving a brief overview of the Jupyter ecosystem.
 
-#### 16:40: Nuggets: Visualizations with GAP and Jupyter
+### 16:40: Nuggets: Visualizations with GAP and Jupyter
 
 Speaker: Pedro A. Garcia-Sanchez
 
@@ -78,7 +78,7 @@ emphasis on Computational Group Theory. In this presentation, we will
 briefly illustrate some of the visualization capabilities offered by
 GAP in Jupyter thanks to Francy and JupyterViz.
 
-#### 16:50 Interactive computation and complex representations of 2D-MZV
+### 16:50 Interactive computation and complex representations of 2D-MZV
 
 Speaker: Olivier Bouillot
 
@@ -112,7 +112,7 @@ fonctions, Gauthier-Villars, Paris, 1905.
 [2] Wegert, E.: Visual complex functions. An introduction with phase portraits.
 Birkhäuser/Springer Basel AG, Basel, 2012.
 
-#### 17:00 Experience with teaching mathematics with notebooks at Universidad de Zaragoza
+### 17:00 Experience with teaching mathematics with notebooks at Universidad de Zaragoza
 
 Speaker: Miguel Marco
 
@@ -131,12 +131,12 @@ main problems that were found in practice, and how we dealt with them.
 We also discuss the viability of such approaches for a university-wide
 level deployment.
 
-#### 17:10 Informal discussion
+### 17:10 Informal discussion
 
 
-### Interactive session 2, Thursday July 16th of 2020
+## Interactive session 2, Thursday July 16th of 2020
 
-#### 16:30 Jupyter widgets for interactive mathematics
+### 16:30 Jupyter widgets for interactive mathematics
 
 Speaker: Odile Benassy
 
@@ -169,7 +169,7 @@ stress at this occasion the role played by dedicated Research Software
 Engineers and suggest incentives for building and animating a rich
 user community.
 
-#### 16:40 Prototyping Controlled Mathematical Languages in Jupyter Notebooks
+### 16:40 Prototyping Controlled Mathematical Languages in Jupyter Notebooks
 
 Speaker: Jan Frederik Schaefer
 
@@ -198,7 +198,7 @@ interfaces. It was put to the test in a one-semester course on
 logic-based natural language processing and was evaluated in classroom 
 presentation as well as for homework assignments.
 
-#### 16:50: Polymake.jl: A new interface to polymake
+### 16:50: Polymake.jl: A new interface to polymake
 
 Speakers: Marek Kaluba <kalmar@amu.edu.pl>, Sascha Timme <timme@math.tu-berlin.de>
 
@@ -214,7 +214,7 @@ demonstrated on an interactive example which combines exact
 computations in polyhedral geometry with numerical methods from other
 fields.
 
-#### 17:00: Interactive use of C/C++ libraries in Jupyter - Strategies and lessons learned
+### 17:00: Interactive use of C/C++ libraries in Jupyter - Strategies and lessons learned
 
 Speaker: Sebastian Gutsche
 
@@ -234,9 +234,9 @@ We discuss the benefits and drawbacks for the different approaches,
 and additional Jupyter functionality (graphical output, widgets) that
 becomes available for free.
 
-#### 17:10: Informal discussions
+### 17:10: Informal discussions
 
-### Publications
+## Publications
 
 *   A _short abstract_ will appear on the permanent conference web page (see below) as soon as accepted.
 
@@ -244,7 +244,7 @@ becomes available for free.
 
 *   A _journal special issue_ consisting of _full papers_ will be organized immediately after the meeting.
 
-### Submission process
+## Submission process
 
 There are two levels of submissions (short and extended abstracts).
 Going to Level 2 requires to go through Level 1 before.

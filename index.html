@@ -13,6 +13,7 @@
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/thebelab.css" />
     <link rel="stylesheet" type="text/css" href="_static/jupyter-sphinx.css" />
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script src="_static/sphinx-book-theme.js"></script>
@@ -29,9 +30,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="_static/thebelab.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Content in Jupyter Book" href="content.html" />
+    <link rel="next" title="An overview of Jupyter and its ecosystem" href="overview/index.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -67,7 +75,7 @@
   
   <ul class="nav sidenav_l1">
   <li class="">
-    <a href="content.html">Content in Jupyter Book</a>
+    <a href="overview/index.html">An overview of Jupyter and its ecosystem</a>
   </li>
 </ul>
 </nav>
@@ -154,13 +162,11 @@
         </li>
     
         <li class="nav-item toc-entry toc-h2">
-            <a href="#aim-and-scope" class="nav-link">Aim and Scope</a><ul class="nav section-nav flex-column">
-                
-        <li class="nav-item toc-entry toc-h3">
-            <a href="#topics-including-but-not-limited-to" class="nav-link">Topics (including, but not limited to)</a>
+            <a href="#aim-and-scope" class="nav-link">Aim and Scope</a>
         </li>
     
-            </ul>
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#topics-including-but-not-limited-to" class="nav-link">Topics (including, but not limited to)</a>
         </li>
     
         <li class="nav-item toc-entry toc-h2">
@@ -277,8 +283,9 @@ demerits!) of this ecosystem and its alternatives for mathematical
 research and education, notably with open science and reproducibility
 in mind.</p>
 <p>~~It you would like to present a talk (~25 minutes), please submit!~~</p>
+</div>
 <div class="section" id="topics-including-but-not-limited-to">
-<h3>Topics (including, but not limited to)<a class="headerlink" href="#topics-including-but-not-limited-to" title="Permalink to this headline">¶</a></h3>
+<h2>Topics (including, but not limited to)<a class="headerlink" href="#topics-including-but-not-limited-to" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Overview of the Jupyter ecosystem</p></li>
 <li><p>Use cases in Research and Education: demonstration and feedback from experience</p></li>
@@ -286,7 +293,6 @@ in mind.</p>
 <li><p>Interactive mathematics with Jupyter widgets</p></li>
 <li><p>Hands on mini tutorials</p></li>
 </ul>
-</div>
 </div>
 <div class="section" id="online-format">
 <h2>Online format<a class="headerlink" href="#online-format" title="Permalink to this headline">¶</a></h2>
@@ -504,6 +510,25 @@ copyright of their paper is transferred to Springer.</p>
 </div>
 </div>
 
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "nthiery/2020-07-13-ICMS-Jupyter",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
 
               </div>
               
@@ -513,7 +538,7 @@ copyright of their paper is transferred to Springer.</p>
     
     <div class='prev-next-bottom'>
         
-    <a class='right-next' id="next-link" href="content.html" title="next page">Content in Jupyter Book</a>
+    <a class='right-next' id="next-link" href="overview/index.html" title="next page">An overview of Jupyter and its ecosystem</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
