@@ -5,7 +5,7 @@ channels:
 
 dependencies:
 - sage
-- gap
-- bqplot
-- rise
+#- gap
+#- bqplot
+#- rise
 
