@@ -8,4 +8,5 @@ dependencies:
 #- gap
 #- bqplot
 #- rise
+# ipywidgets RISE jupyter_francy
 
