@@ -1,5 +1,4 @@
 - file: index
-- file: content
+- file: overview/index
   sections:
-    - file: markdown
-    - file: notebooks
+    - file: overview/02-ParcoursEnLargeur.ipynb
