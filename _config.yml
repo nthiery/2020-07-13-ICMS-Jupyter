@@ -20,6 +20,9 @@ html:
   use_repository_button: true
   use_edit_page_button: true
 
+execute:
+  execute_notebooks: false
+
 sphinx:
   extra_extensions:
     - sphinx_thebelab

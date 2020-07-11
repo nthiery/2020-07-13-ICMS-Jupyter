@@ -36,7 +36,7 @@ in mind.
 ~~It you would like to present a talk (~25 minutes), please submit!~~
 
 
-#### Topics (including, but not limited to)
+## Topics (including, but not limited to)
 
 *   Overview of the Jupyter ecosystem
 *   Use cases in Research and Education: demonstration and feedback from experience
