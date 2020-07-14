@@ -5,8 +5,15 @@ channels:
 
 dependencies:
 - sage
+- pip
+- pip:
+    - rise
+    - bqplot
+    - networkx >= 2.4
 #- gap
 #- bqplot
 #- rise
 # ipywidgets RISE jupyter_francy
 
+# sage -pip install bqplot
+# sage -pip install --upgrade networkx
