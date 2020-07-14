@@ -189,10 +189,6 @@
         </li>
     
         <li class="nav-item toc-entry toc-h2">
-            <a href="#tests" class="nav-link">Tests</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h2">
             <a href="#visualisation" class="nav-link">Visualisation</a>
         </li>
     
@@ -279,7 +275,7 @@
 </div>
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "9130334c735e48a594bb89f4acb2c263", "version_major": 2, "version_minor": 0}
+{"model_id": "f782e332f0ee41798e0f88a8c0ea90f4", "version_major": 2, "version_minor": 0}
 </script></div>
 </div>
 <p><strong>Note:</strong> Si votre classe <code class="docutils literal notranslate"><span class="pre">Graph</span></code> n’est pas au point, remplacez <code class="docutils literal notranslate"><span class="pre">graph</span></code> par <code class="docutils literal notranslate"><span class="pre">graph_networkx</span></code> ci-dessus.</p>
@@ -299,41 +295,6 @@
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>{&#39;D&#39;, &#39;F&#39;, &#39;G&#39;, &#39;H&#39;}
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="tests">
-<h2>Tests<a class="headerlink" href="#tests" title="Permalink to this headline">¶</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">H</span> <span class="o">=</span> <span class="n">examples</span><span class="o">.</span><span class="n">cours_1_reseau</span><span class="p">()</span>
-<span class="k">assert</span> <span class="n">parcours</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="s2">&quot;A&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="p">{</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="s1">&#39;F&#39;</span><span class="p">,</span> <span class="s1">&#39;G&#39;</span><span class="p">,</span> <span class="s1">&#39;H&#39;</span><span class="p">}</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">parcours</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="p">{</span><span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="s1">&#39;F&#39;</span><span class="p">,</span> <span class="s1">&#39;G&#39;</span><span class="p">,</span> <span class="s1">&#39;H&#39;</span><span class="p">}</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">H</span> <span class="o">=</span> <span class="n">examples</span><span class="o">.</span><span class="n">cours_1_G</span><span class="p">()</span>
-<span class="k">assert</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">parcours</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span> <span class="o">==</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">H</span> <span class="o">=</span> <span class="n">examples</span><span class="o">.</span><span class="n">disconnected</span><span class="p">()</span>
-<span class="k">assert</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">parcours</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span> <span class="o">==</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
-<span class="k">assert</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">parcours</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span> <span class="o">==</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -406,7 +367,7 @@
 </div>
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "610487981e11456186b3a2e903fc02f1", "version_major": 2, "version_minor": 0}
+{"model_id": "f39c7301684340db9561c3a88631c7a1", "version_major": 2, "version_minor": 0}
 </script></div>
 </div>
 <div class="cell docutils container">
