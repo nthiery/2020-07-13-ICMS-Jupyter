@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>An overview of Jupyter and its ecosystem &#8212; ICMS 2020 Session: The Jupyter Environment for Computational Mathematics</title>
+    <title>A brief overview of Jupyter and its ecosystem &#8212; ICMS 2020 Session: The Jupyter Environment for Computational Mathematics</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
@@ -39,6 +39,7 @@
     <script async="async" src="../_static/thebelab.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Étude d’un algorithme de parcours de graphes" href="01-ParcoursDeGraphes.html" />
     <link rel="prev" title="ICMS 2020 Session: The Jupyter Environment for Computational Mathematics" href="../index.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -75,7 +76,12 @@
   
   <ul class="nav sidenav_l1">
   <li class="active">
-    <a href="">An overview of Jupyter and its ecosystem</a>
+    <a href="">A brief overview of Jupyter and its ecosystem</a>
+  <ul class="nav sidenav_l2">
+    <li class="">
+      <a href="01-ParcoursDeGraphes.html">Étude d’un algorithme de parcours de graphes</a>
+    </li>
+  </ul>
   </li>
 </ul>
 </nav>
@@ -114,9 +120,9 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/overview/index.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/overview/index.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
+                data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -134,7 +140,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         
-        <a class="edit-button" href="https://github.com/nthiery/2020-07-13-ICMS-Jupyter/edit/master/overview/index.md"><button
+        <a class="edit-button" href="https://github.com/nthiery/2020-07-13-ICMS-Jupyter/edit/master/overview/index.ipynb"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -148,6 +154,26 @@
 
         <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/nthiery/2020-07-13-ICMS-Jupyter/master?urlpath=tree/overview/index.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebelabSBT()" title="Launch Thebelab" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
     </div>
     <div class="d-none d-md-block col-md-2 bd-toc show">
 <div class="tocsection onthispage pt-5 pb-3">
@@ -158,15 +184,89 @@
     <ul class="nav section-nav flex-column">
     
         <li class="nav-item toc-entry toc-h2">
-            <a href="#what-s-jupyter" class="nav-link">What’s Jupyter</a>
+            <a href="#what-s-jupyter" class="nav-link">What’s Jupyter?</a>
         </li>
     
         <li class="nav-item toc-entry toc-h2">
-            <a href="#what-s-new-really" class="nav-link">What’s new, really?</a>
+            <a href="#the-jupyter-notebook" class="nav-link">The Jupyter Notebook</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#some-use-cases" class="nav-link">Some use cases</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#later-in-this-session" class="nav-link">Later in this session</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#caveats" class="nav-link">Caveats</a>
+        </li>
+    
+            </ul>
         </li>
     
         <li class="nav-item toc-entry toc-h2">
-            <a href="#some-goodies-in-the-ecosystem" class="nav-link">Some goodies in the ecosystem</a>
+            <a href="#what-s-new-really-with-jupyter" class="nav-link">What’s new, really, with Jupyter?</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#early-90-s-maple-mathematica-mupad" class="nav-link">Early 90’s: Maple, Mathematica, MuPAD, …</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#early-2000-texmacs-lyx" class="nav-link">Early 2000’: TeXmacs, LyX</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#sagemath" class="nav-link">~2006: SageMath</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#ipython" class="nav-link">~2008: IPython</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#jupyter" class="nav-link">2014-: Jupyter</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#jupyter-lab" class="nav-link">2019: Jupyter Lab</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#adoption" class="nav-link">Adoption</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#adoption-in-mathematics" class="nav-link">Adoption in mathematics?</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#some-gems-in-the-jupyter-ecosystem" class="nav-link">Some gems in the Jupyter ecosystem</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#authoring" class="nav-link">Authoring</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#teaching" class="nav-link">Teaching</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#access" class="nav-link">Access</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#sharing" class="nav-link">Sharing</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#take-home-message-personal-view-on-jupyter" class="nav-link">Take home message / personal view on Jupyter</a>
         </li>
     
     </ul>
@@ -175,7 +275,7 @@
 
 
 <div class="tocsection editthispage">
-    <a href="https://github.com/nthiery/2020-07-13-ICMS-Jupyter/edit/master/overview/index.md">
+    <a href="https://github.com/nthiery/2020-07-13-ICMS-Jupyter/edit/master/overview/index.ipynb">
         <i class="fas fa-pencil-alt"></i> Edit this page
     </a>
 </div>
@@ -187,27 +287,236 @@
         
               <div>
                 
-  <div class="section" id="an-overview-of-jupyter-and-its-ecosystem">
-<h1>An overview of Jupyter and its ecosystem<a class="headerlink" href="#an-overview-of-jupyter-and-its-ecosystem" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="what-s-jupyter">
-<h2>What’s Jupyter<a class="headerlink" href="#what-s-jupyter" title="Permalink to this headline">¶</a></h2>
-<p>Example: teaching</p>
+  <div class="section" id="a-brief-overview-of-jupyter-and-its-ecosystem">
+<h1>A brief overview of Jupyter and its ecosystem<a class="headerlink" href="#a-brief-overview-of-jupyter-and-its-ecosystem" title="Permalink to this headline">¶</a></h1>
+<p><span class="math notranslate nohighlight">\(\newcommand{\K}{\mathbb{K}}\)</span>
+<img src="pictures/banner.png" align="right" width="55%" style="opacity:0.5;filter:alpha(opacity=40);"/></p>
+<img src="pictures/id.jpg" width="10%">
+<p>Nicolas M. Thiéry<br>
+LRI, Université Paris-Sud / Saclay</p>
+<!--View the live slides on binder: https://tinyurl.com/swavl3h
+<a href="https://mybinder.org/v2/gh/OpenDreamKit/demo-semigroup-representation-theory/master?filepath=2020-01-18-INI-implementing-semigroup-representation-theory.ipynb">
+<img src="pictures/2020-01-18-INI-implementing-semigroup-representation-theory.qrcode.png" width="25%"></a>!-->
+<img src="pictures/Flag_of_Europe.svg"   width="10%" align="left">
+<img src="pictures/odk-elected-logo.svg" width="6%" align="right"><div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Welcome everyone to this session about the Jupyter Environment for Computational Mathematics!*</p>
+<p>Since it appeared in 2014, Jupyter was widely adopted for interactive
+computations. There was a very fruitful collaboration
+between the computational mathematics and the Jupyter communities.
+I’ll thank here the European Union for providing massive funding through
+the OpenDreamKit project. It was an awful lot of work to coordinate this
+project; but it helped a lot bringing people together and getting help
+from Research Software Engineers.</p>
+<p>I launched this session as an occasion for sharing our expertise and views
+on Jupyter, and report about all the good things and the bad things when putting it in practice.
+I hope you’ll enjoy this session despite the circumstances, and am looking forward
+enlightening discussions!</p>
 </div>
-<div class="section" id="what-s-new-really">
-<h2>What’s new, really?<a class="headerlink" href="#what-s-new-really" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="what-s-jupyter">
+<h2>What’s Jupyter?<a class="headerlink" href="#what-s-jupyter" title="Permalink to this headline">¶</a></h2>
+<p>From <a class="reference external" href="https://jupyter.org">jupyter.org</a>: <em>Project Jupyter exists to develop open-source software, open-standards, and services for interactive computing across dozens of programming languages.</em></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This does not sound very concrete yet, right?
+Let’s start with Jupyter’s flagship application:</p>
+</div>
+</div>
+<div class="section" id="the-jupyter-notebook">
+<h2>The Jupyter Notebook<a class="headerlink" href="#the-jupyter-notebook" title="Permalink to this headline">¶</a></h2>
+<p>Again from <a class="reference external" href="https://jupyter.org">jupyter.org</a>: <em>an open-source web application that allows you to create and share documents that contain live code, equations, visualizations and narrative text</em></p>
+<div class="section" id="some-use-cases">
+<h3>Some use cases<a class="headerlink" href="#some-use-cases" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li><p>Notebooks</p></li>
-<li><p>Multi-system</p></li>
+<li><p>Teaching material: <a class="reference internal" href="01-ParcoursDeGraphes.html"><span class="doc std std-doc">some interactive class notes in graph theory</span></a></p></li>
+<li><p>Interactive slides: this is a Jupyter notebook!</p></li>
+<li><p>Computer exploration log books</p></li>
+<li><p>Data analysis reports</p></li>
 <li><p>…</p></li>
 </ul>
-</div>
-<div class="section" id="some-goodies-in-the-ecosystem">
-<h2>Some goodies in the ecosystem<a class="headerlink" href="#some-goodies-in-the-ecosystem" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Rise slides</p></li>
-<li><p>Binder</p></li>
-<li><p>JupyterBook</p></li>
+<li><p>a good tool for <strong>sharing reproducible interactive stories</strong></p></li>
+<li><p>a <strong>rich user interface</strong> for computational systems</p></li>
 </ul>
+</div>
+<div class="section" id="later-in-this-session">
+<h3>Later in this session<a class="headerlink" href="#later-in-this-session" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Olivier: Interactive visualization of 2d zeta functions</p></li>
+<li><p>Pedro: Discrete maths visualization with GAP</p></li>
+<li><p>Miguel: Teaching mathematics with Jupyter</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You’ll often hear complains that Jupyter notebooks tend to be messy and hard to navigate.
+That’s right! Owning a typewriter does not make you Hemingway. Jupyter is no different.
+It does take training to write good stories. Also newcomers tend to abuse their new
+shiny hammer and use Jupyter as code editor, which it’s not meant for.</p>
+</div>
+</div>
+<div class="section" id="caveats">
+<h3>Caveats<a class="headerlink" href="#caveats" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>It takes <em>skills and practice</em> to write good stories; Jupyter is no different</p></li>
+<li><p>Not meant as a ~~code editor~~</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="what-s-new-really-with-jupyter">
+<h2>What’s new, really, with Jupyter?<a class="headerlink" href="#what-s-new-really-with-jupyter" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="early-90-s-maple-mathematica-mupad">
+<h3>Early 90’s: Maple, Mathematica, MuPAD, …<a class="headerlink" href="#early-90-s-maple-mathematica-mupad" title="Permalink to this headline">¶</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In 1994, when I started my thesis, notebooks were already common. With the same use cases and abuse and complaints. I personally was using Maple, but Mathematica and many other systems had notebooks.</p>
+</div>
+</div>
+<div class="section" id="early-2000-texmacs-lyx">
+<h3>Early 2000’: TeXmacs, LyX<a class="headerlink" href="#early-2000-texmacs-lyx" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="sagemath">
+<h3>~2006: SageMath<a class="headerlink" href="#sagemath" title="Permalink to this headline">¶</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In 2006, the SageMath notebook brought some innovations with a web-based architecture, enabling online use and sharing.</p>
+</div>
+</div>
+<div class="section" id="ipython">
+<h3>~2008: IPython<a class="headerlink" href="#ipython" title="Permalink to this headline">¶</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Then, the IPython team took the lead from there with a carefully crafted architecture and implementation.
+And then they realized, as the TeXmacs developers had done earlier, that most of the architecture was system independent. By defining a <strong>standardized communication protocol</strong> one could integrate any computational system that provided a <em>kernel</em> implementing that protocol.
+That was the birth of Jupyter, starting with three kernels for Julia, Python and R.</p>
+</div>
+</div>
+<div class="section" id="jupyter">
+<h3>2014-: Jupyter<a class="headerlink" href="#jupyter" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><strong>web-based</strong>, <strong>system-independent</strong> notebook application</p></li>
+<li><p><strong>standardized formats and communication protocols</strong></p></li>
+<li><p><strong>kernels</strong> for Julia, Python, R, and now dozens of others; even C++ or Coq!</p></li>
+</ul>
+</div>
+<div class="section" id="jupyter-lab">
+<h3>2019: Jupyter Lab<a class="headerlink" href="#jupyter-lab" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Refactoring as a highly modular library</p></li>
+<li><p>The notebook: just one of many applications built on top of this library</p></li>
+<li><p>Work spaces, code editor, …</p></li>
+</ul>
+</div>
+<div class="section" id="adoption">
+<h3>Adoption<a class="headerlink" href="#adoption" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>In academy and industry, notably for data science</p></li>
+<li><p>Millions of Jupyter notebooks on GitHub</p></li>
+<li><p>Every cloud provider offers some Jupyter service:<br />
+Google Collaboratory, Azure notebooks, …</p></li>
+<li><p>Alternative implementations exploring additional features:<br />
+e.g. live collaboration in CoCalc</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Now we see why jupyter focuses on open source, protocols, standards, modularity rather than on a specific applications. This paves the way for a whole community-developed ecosystem to flourish.</p>
+</div>
+<ul class="simple">
+<li><p><strong>A whole ecosystem of community contributed tools and extensions</strong></p></li>
+</ul>
+</div>
+<div class="section" id="adoption-in-mathematics">
+<h3>Adoption in mathematics?<a class="headerlink" href="#adoption-in-mathematics" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><strong>kernels</strong> for GAP, Oscar (Julia), Pari/GP, SageMath, Singular<br />
+and all C++, Julia, Python, … math libraries!</p></li>
+</ul>
+<p>On Thursday:</p>
+<ul class="simple">
+<li><p>Marek: new PolyMake interface through Julia</p></li>
+<li><p>Jan: a new kernel for prototyping mathematical languages</p></li>
+<li><p>Sebastian:  approaches for implementing new kernels</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="some-gems-in-the-jupyter-ecosystem">
+<h2>Some gems in the Jupyter ecosystem<a class="headerlink" href="#some-gems-in-the-jupyter-ecosystem" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="authoring">
+<h3>Authoring<a class="headerlink" href="#authoring" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><strong>Jupyter Widgets</strong>: rich interactivity and applications<br />
+See Odile’s presentation</p></li>
+<li><p><strong>RISE</strong>: interactive slides</p></li>
+<li><p><strong>JupyterBook</strong>: interactive online books from a collection of notebooks</p></li>
+<li><p><strong>ThebeLab</strong>: embedding live examples in static web pages</p></li>
+</ul>
+<ul class="simple">
+<li><p><strong>nbconvert</strong>: convert to all sorts of formats</p></li>
+<li><p><strong>JupyText</strong>: when you like plain text files</p></li>
+<li><p><strong>nbdime</strong>: version control integration</p></li>
+<li><p><strong>nbval</strong>: regression testing</p></li>
+</ul>
+</div>
+<div class="section" id="teaching">
+<h3>Teaching<a class="headerlink" href="#teaching" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><strong>nbgrader</strong>: a tool for creating and grading assignments</p></li>
+<li><p><strong>Cocalc</strong>: Collaborative Calculation, with class management support</p></li>
+</ul>
+</div>
+<div class="section" id="access">
+<h3>Access<a class="headerlink" href="#access" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><strong>JupyterHub</strong>: online Jupyter service, e.g. at the scale of an institution</p></li>
+</ul>
+</div>
+<div class="section" id="sharing">
+<h3>Sharing<a class="headerlink" href="#sharing" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><strong>Forges</strong> (GitHub, GitLab) with notebook integration</p></li>
+<li><p><strong>SoftwareHeritage</strong>: long term archival</p></li>
+<li><p><strong>nbviewer</strong>: online preview</p></li>
+<li><p><strong>Binder</strong>: service to run notebooks online with arbitrary dependencies</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="take-home-message-personal-view-on-jupyter">
+<h2>Take home message / personal view on Jupyter<a class="headerlink" href="#take-home-message-personal-view-on-jupyter" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To conclude, let me try to summarize, in my view, what are the main Pros and Cons of Jupyter.</p>
+</div>
+<p>Pros:</p>
+<ul class="simple">
+<li><p>Rich user interfaces for interactive computing</p></li>
+<li><p>A vivid fast moving ecosystem</p></li>
+<li><p>Adopted by millions in all areas of computational sciences</p></li>
+<li><p>Adopted by many popular mathematical systems</p></li>
+<li><p>Versatility and smooth learning curve</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>First comes the wide adoption in all areas of computational sciences, including Mathematics.
+With as corollary, a fast moving ecosystem of tools.
+Then comes the versatility. At first, you just read and play with existing notebooks; or use them as advanced pocket calculator. And then you move on to authoring and sharing your own stories. As you gain confidence, you make your stories more interactive with widgets. Taylor the tool to your needs. Design mini-applications. And share everything with your less advanced colleagues. This smooth learning curve lower the barrier between users and developers. And also between systems.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Now, certainly not everything is perfect. Did I mention the fast moving ecosystem?</p>
+</div>
+<p>Cons:</p>
+<ul class="simple">
+<li><p>A fast moving ecosystem</p></li>
+<li><p>More advanced contributions require more advanced skills (e.g web technologies)</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Well, this can be tough to newcomers who can easily get lost; especially when everyone around uses his own favorite combination of tools from the ecosystem.
+In addition there is some complexity built into the architecture with Javascript on the browser side talking with Python on the server side. More advanced contributions, like integrating some cool Javascript library, require familiarity with web technologies which is a whole new world for most computational mathematicians, like me.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This concludes my little overview of the Jupyter ecosystem. Thanks for listening. I hope you’ll enjoy the session and am looking forward further discussions!</p>
+</div>
 <div class="toctree-wrapper compound">
 </div>
 </div>
@@ -222,16 +531,16 @@
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "sagemath"
         },
         kernelOptions: {
-            kernelName: "python3",
+            kernelName: "sagemath",
             path: "./overview"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'sagemath'</script>
 
               </div>
               
@@ -242,6 +551,7 @@
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="../index.html" title="previous page">ICMS 2020 Session: The Jupyter Environment for Computational Mathematics</a>
+    <a class='right-next' id="next-link" href="01-ParcoursDeGraphes.html" title="next page">Étude d’un algorithme de parcours de graphes</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
