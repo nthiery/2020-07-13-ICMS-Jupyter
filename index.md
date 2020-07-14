@@ -64,14 +64,18 @@ See the talks below for the detailed schedule.
 
 ### 16:30: An overview of Jupyter and its ecosystem
 
-Speaker: Nicolas M. Thiéry
+- Speaker: Nicolas M. Thiéry
+- [Talk](https://videoalbum59f7f8abc4694903b3b1f0a4b1f23fcc91005-master.s3-eu-west-1.amazonaws.com/public/upload/d37b8f83-b413-4167-a91d-dc835fcdedd7.mp4)
+- [Slides](overview/index)
 
 In this introductory presentation, we will setup the stage for the
 session by giving a brief overview of the Jupyter ecosystem.
 
 ### 16:40: Nuggets: Visualizations with GAP and Jupyter
 
-Speaker: Pedro A. Garcia-Sanchez
+- Speaker: Pedro A. Garcia-Sanchez
+- Slides: [HTML](https://numerical-semigroups.github.io/Nuggets), [as
+  notebook](https://nbviewer.jupyter.org/github/numerical-semigroups/Nuggets/blob/master/Nuggets.ipynb), [as live notebook on binder](https://mybinder.org/v2/gh/numerical-semigroups/Nuggets/master?filepath=Nuggets.ipynb)
 
 GAP is a system for computational discrete algebra, with particular
 emphasis on Computational Group Theory. In this presentation, we will
@@ -114,7 +118,9 @@ Birkhäuser/Springer Basel AG, Basel, 2012.
 
 ### 17:00 Experience with teaching mathematics with notebooks at Universidad de Zaragoza
 
-Speaker: Miguel Marco
+- Speaker: Miguel Marco
+- [Talk](https://videoalbum59f7f8abc4694903b3b1f0a4b1f23fcc91005-master.s3-eu-west-1.amazonaws.com/public/upload/f4a110c1-4e58-4855-b26c-956510c82644.mp4)
+- [Slides](./teaching/index.html)
 
 Web based notebook interfaces to free/open source mathematical
 software have been used as a tool for teaching mathematics related
@@ -138,7 +144,11 @@ level deployment.
 
 ### 16:30 Jupyter widgets for interactive mathematics
 
-Speaker: Odile Benassy
+- Speaker: Odile Benassy
+- [Talk](https://videoalbum59f7f8abc4694903b3b1f0a4b1f23fcc91005-master.s3-eu-west-1.amazonaws.com/public/upload/1403d33f-3c15-4161-a277-858df97d563b.mp4)
+- Slides:
+  [As notebook](https://nbviewer.jupyter.org/github/zerline/ICMS2020/blob/master/ICMS2020.ipynb),
+  [As live notebook on Binder](https://mybinder.org/v2/gh/zerline/ICMS2020/master?filepath=ICMS2020.ipynb)
 
 In this talk, we will illustrate the rich interactive features offered
 by Jupyter. Indeed, beyond the traditional REPL (Read-Eval-Print
@@ -171,38 +181,28 @@ user community.
 
 ### 16:40 Prototyping Controlled Mathematical Languages in Jupyter Notebooks
 
-Speaker: Jan Frederik Schaefer
+- Speaker: Jan Frederik Schaefer
+- [Talk](https://videoalbum59f7f8abc4694903b3b1f0a4b1f23fcc91005-master.s3-eu-west-1.amazonaws.com/public/upload/4cb042e7-6c40-498a-9950-ff2bce0fa909.mp4)
+- Slides: [as PDF](http:glf/slides.pdf), [live notebook on mybinder.org](https://mybinder.org/v2/gh/jfschaefer/GlifBinder/master)
 
-TBA
 
-The Grammatical Logical Framework (GLF) is a framework for prototyping 
-natural language semantics. It uses the Grammatical Framework for 
-grammar development and MMT for logic development and semantics 
-construction. In the semantics construction, parse trees are mapped to 
-logical expressions via MMT views (meaning-preserving interpretation 
-mappings).
-
-The motivation behind GLF was to apply it to mathematical language, as 
-the classical compositional approach to semantics construction seemed 
-most suitable for a domain where high precision was mandatory - even at 
-the price of limited coverage. In particular, software for formal 
-mathematics (such as proof checkers) require formal input languages. 
-These are typically difficult to understand and learn, raising the entry 
-barrier for potential users. A solution is to design input languages 
-that closely resemble natural language. Early results indicate that GLF 
-can be a useful tool for quickly prototyping such languages.
-
-With this in mind, we present a new Jupyter kernel for GLF that adds 
-visual support for the development of GLF-based syntax/semantics 
-interfaces. It was put to the test in a one-semester course on 
-logic-based natural language processing and was evaluated in classroom 
-presentation as well as for homework assignments.
+The Grammatical Logical Framework (GLF) is a framework for prototyping the translation
+of natural language sentences into logic.
+The motivation behind GLF was to apply it to mathematical language,
+as the classical compositional approach to semantics construction seemed most suitable for a domain
+where high precision was mandatory -- even at the price of limited coverage.
+In particular, software for formal mathematics (such as proof checkers) require formal input languages.
+These are typically difficult to understand and learn, raising the entry barrier for potential users.
+A solution is to design input languages that closely resemble natural language.
+Early results indicate that GLF can be a useful tool for quickly prototyping such languages.
+In this presentation and paper, we explore how GLF can be used to prototype such languages and
+present a new Jupyter kernel that
+adds visual support for the development of GLF-based syntax/semantics interfaces.
 
 ### 16:50: Polymake.jl: A new interface to polymake
 
 Speakers: Marek Kaluba <kalmar@amu.edu.pl>, Sascha Timme <timme@math.tu-berlin.de>
-
-Abstract:
+- [Talk](https://videoalbum59f7f8abc4694903b3b1f0a4b1f23fcc91005-master.s3-eu-west-1.amazonaws.com/public/upload/f9ab2eb1-ed8d-4da1-b6e0-5723ee9e6606.mp4)
 
 Polymake is a software for research in polyhedral geometry with Perl
 as the user interfacing language. We present Polymake.jl, an interface

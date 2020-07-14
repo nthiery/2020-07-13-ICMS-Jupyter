@@ -26,3 +26,5 @@ execute:
 sphinx:
   extra_extensions:
     - sphinx_thebelab
+  config:
+    html_extra_path: ['assets']

@@ -1,4 +1,5 @@
 - file: index
-- file: overview/index
+- file: overview/index.ipynb
   sections:
-    - file: overview/02-ParcoursEnLargeur.ipynb
+    - file: overview/01-ParcoursDeGraphes.ipynb
+- file: teaching/index.html
