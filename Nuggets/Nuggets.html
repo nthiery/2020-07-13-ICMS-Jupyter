@@ -1,0 +1,858 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Nuggets and gap &#8212; ICMS 2020 Session: The Jupyter Environment for Computational Mathematics</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/thebelab.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/mystnb.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../_static/thebelab.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">ICMS 2020 Session: The Jupyter Environment for Computational Mathematics</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../overview/index.html">
+   A brief overview of Jupyter and its ecosystem
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Nuggets/Nuggets.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/nthiery/2020-07-13-ICMS-Jupyter"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        <a class="edit-button" href="https://github.com/nthiery/2020-07-13-ICMS-Jupyter/edit/master/Nuggets/Nuggets.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/nthiery/2020-07-13-ICMS-Jupyter/master?urlpath=tree/Nuggets/Nuggets.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebelabSBT()" title="Launch Thebelab" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> On this page
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pedro-a-garcia-sanchez-universidad-de-granada">
+   Pedro A. García Sánchez (Universidad de Granada)
+  </a>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="nuggets-and-gap">
+<h1>Nuggets and <code class="docutils literal notranslate"><span class="pre">gap</span></code><a class="headerlink" href="#nuggets-and-gap" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="pedro-a-garcia-sanchez-universidad-de-granada">
+<h2>Pedro A. García Sánchez (Universidad de Granada)<a class="headerlink" href="#pedro-a-garcia-sanchez-universidad-de-granada" title="Permalink to this headline">¶</a></h2>
+<p>The problem is simple. You want to buy a certain amount of nuggets, and the store offers boxes of 6, 9 and 20 (as it was in MacDonnald’s sometime in the last century; nowadays the boxes are not so generous). You actually want to have the exact amount of Nuggets you want to eat, no one above no one below. So for instance, you cannot buy four nuggets, not 10. But you have several ways to buy 18 nuggets: three boxes of six, or two boxes of nine.</p>
+<p>We want to visualize first in how many ways can we buy a certain amount of Nuggets. To this end we will use the <a class="reference external" href="https://www.gap-system.org"><code class="docutils literal notranslate"><span class="pre">gap</span></code></a> function <code class="docutils literal notranslate"><span class="pre">NrRestrictedPartitions</span></code> and the <code class="docutils literal notranslate"><span class="pre">gap</span></code> package <a class="reference external" href="https://nathancarter.github.io/jupyterviz/"><code class="docutils literal notranslate"><span class="pre">jupyterviz</span></code></a>. We will also give some hints on how to use <a class="reference external" href="https://gap-packages.github.io/francy/"><code class="docutils literal notranslate"><span class="pre">francy</span></code></a>.</p>
+<p>Notice that the amounts that we correspond with finite sums of integers in the set <span class="math notranslate nohighlight">\(\{6,9,20\}\)</span>, and thus we are talking about the semigroup <span class="math notranslate nohighlight">\(\langle 6,9,20\rangle\)</span>. We will use <code class="docutils literal notranslate"><span class="pre">numericalsgps</span></code> to work with numerical semigroups.</p>
+<p>If you want to know more about nuggets and numerical semigroups, please refer to this <a class="reference external" href="https://link.springer.com/chapter/10.1007/978-3-030-37853-0_6">book chapter</a>, this <a class="reference external" href="https://www.tandfonline.com/doi/abs/10.1080/0025570X.2018.1515559?journalCode=umma20">paper</a> and this <a class="reference external" href="https://arxiv.org/abs/1912.04494">manuscript</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LoadPackage</span><span class="p">(</span><span class="s2">&quot;francy&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>true
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LoadPackage</span><span class="p">(</span><span class="s2">&quot;jupyterviz&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>true
+</pre></div>
+</div>
+</div>
+</div>
+<p>We want graphs and diagrams stored on the notebook.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PlotDisplayMethod</span><span class="o">:=</span><span class="n">PlotDisplayMethod_JupyterSimple</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&quot;PlotDisplayMethod_JupyterSimple&quot;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LoadPackage</span><span class="p">(</span><span class="s2">&quot;numericalsgps&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>true
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let us start by showing how many ways of buying Nuggets do we have in the range <span class="math notranslate nohighlight">\(\{0,\ldots,50\}\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Plot</span><span class="p">([</span><span class="mf">0.</span><span class="o">.</span><span class="mi">50</span><span class="p">],</span> <span class="n">x</span><span class="o">-&gt;</span><span class="n">NrRestrictedPartitions</span><span class="p">(</span><span class="n">x</span><span class="p">,[</span><span class="mi">6</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">20</span><span class="p">]),</span> 
+ <span class="n">rec</span><span class="p">(</span>
+<span class="n">title</span> <span class="o">:=</span> <span class="s2">&quot;Different ways to buy this many Nuggets&quot;</span><span class="p">,</span>
+          <span class="n">xaxis</span> <span class="o">:=</span> <span class="s2">&quot;n&quot;</span><span class="p">,</span>
+<span class="n">yaxis</span> <span class="o">:=</span> <span class="s2">&quot;number of expressions of n in terms of the boxes&quot;</span><span class="p">,</span> 
+<span class="n">xaxis</span> <span class="o">:=</span> <span class="s2">&quot;number of Nuggets, n&quot;</span><span class="p">,</span>
+<span class="nb">type</span><span class="o">:=</span><span class="s2">&quot;bar&quot;</span>
+      <span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/javascript">( function ( element ) {
+if ( !window.JUPVIZLibs ) window.JUPVIZLibs = { };
+if ( !window.JUPVIZLibs["main"] ) {
+window.createVisualization=function(element,data,callback){if(window.VisualizationTools[data.tool])window.VisualizationTools[data.tool](element,data,callback);else{window.VisualizationTools.html(element,{data:{html:'Error: No known visualization tool, "'+data.tool+'."'}},callback)}};window.VisualizationTools={html:function(element,json,callback){var div=document.createElement("div");element.appendChild(div);div.innerHTML=json.data.html;if(json.width)$(div).width(json.width);if(json.height)$(div).height(json.height);callback(element,div)}};window.resizeToShowContents=function(element){var maxima={right:0,bottom:0};$(element).find("*").each(function(idx,elt){var $elt=$(elt);var right=$elt.position().left+$elt.outerWidth();var bottom=$elt.position().top+$elt.outerHeight();maxima={right:Math.max(right,maxima.right),bottom:Math.max(bottom,maxima.bottom)}});var $element=$(element);$element.width(maxima.right-$element.position().left);$element.height(maxima.bottom-$element.position().top)};
+    window.JUPVIZLibs["main"] = 'loaded';
+}
+if ( !window.JUPVIZLibs["viz-tool-plotly"] ) {
+window.requirejs.config({paths:{plotly:"https://cdn.plot.ly/plotly-latest.min"}});window.VisualizationTools.plotly=function(element,json,callback){require(["plotly"],function(plotly){plotly.newPlot(element,json.data);callback(element,element.childNodes[0])})};
+    window.JUPVIZLibs["viz-tool-plotly"] = 'loaded';
+}
+window.createVisualization(element,{"data" : {"data" : [{"x" : [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50],"y" : [1,0,0,0,0,0,1,0,0,1,0,0,1,0,0,1,0,0,2,0,1,1,0,0,2,0,1,2,0,1,2,0,1,2,0,1,3,0,2,2,1,1,3,0,2,3,1,2,3,1,2],"type" : "bar"}],"layout" : {"height" : 400,"title" : "Different ways to buy this many Nuggets","xaxis" : {"title" : "number of Nuggets, n"},"yaxis" : {"title" : "number of expressions of n in terms of the boxes"}}},"tool" : "plotly"}
+,function(element,visualization){
+});
+} )( element.get( 0 ) )</script></div>
+</div>
+<p>Clearly for elements outside <span class="math notranslate nohighlight">\(\langle 6,9,20\rangle\)</span> there will be no possible choice of boxes to get that specific amount of nuggets.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">S</span><span class="o">:=</span><span class="n">NumericalSemigroup</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">20</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>Numerical semigroup with 3 generators
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">realizable</span><span class="o">:=</span><span class="n">Intersection</span><span class="p">(</span><span class="n">S</span><span class="p">,[</span><span class="mf">0.</span><span class="o">.</span><span class="mi">50</span><span class="p">]);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[ 0, 6, 9, 12, 15, 18, 20, 21, 24, 26, 27, 29, 30, 32, 33, 35, 36, 38, 39, 40, 41, 42, 44, 45, 46, 47, 48, 49, 50 ]
+</pre></div>
+</div>
+</div>
+</div>
+<p>The amounts of nuggets that we cannot buy with this box offer are precisely the gaps of <span class="math notranslate nohighlight">\(S\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Gaps</span><span class="p">(</span><span class="n">S</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[ 1, 2, 3, 4, 5, 7, 8, 10, 11, 13, 14, 16, 17, 19, 22, 23, 25, 28, 31, 34, 37, 43 ]
+</pre></div>
+</div>
+</div>
+</div>
+<p>We will now overprint to the above bar diagram the minimum number of boxes required to obtain the dessired number of Nuggets.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sizes</span><span class="o">:=</span><span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">20</span><span class="p">];;</span>
+<span class="n">realizable</span><span class="o">:=</span><span class="n">Intersection</span><span class="p">(</span><span class="n">S</span><span class="p">,[</span><span class="mf">0.</span><span class="o">.</span><span class="mi">100</span><span class="p">]);;</span>
+<span class="n">Plot</span><span class="p">([</span><span class="n">realizable</span><span class="p">,</span> <span class="n">x</span><span class="o">-&gt;</span><span class="n">NrRestrictedPartitions</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">sizes</span><span class="p">),</span> 
+ <span class="n">rec</span><span class="p">(</span>
+<span class="n">title</span> <span class="o">:=</span> <span class="s2">&quot;Different ways to buy this many Nuggets&quot;</span><span class="p">,</span>
+          <span class="n">xaxis</span> <span class="o">:=</span> <span class="s2">&quot;n&quot;</span><span class="p">,</span>
+<span class="n">yaxis</span> <span class="o">:=</span> <span class="s2">&quot;number of expressions of n in terms of the boxes&quot;</span><span class="p">,</span> 
+<span class="n">xaxis</span> <span class="o">:=</span> <span class="s2">&quot;number of Nuggets, n&quot;</span><span class="p">,</span>
+<span class="nb">type</span><span class="o">:=</span><span class="s2">&quot;bar&quot;</span>
+<span class="p">)],</span> 
+<span class="p">[</span><span class="n">realizable</span><span class="p">,</span> <span class="n">x</span><span class="o">-&gt;</span><span class="n">Minimum</span><span class="p">(</span><span class="n">List</span><span class="p">(</span><span class="n">RestrictedPartitions</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">sizes</span><span class="p">),</span><span class="n">Length</span><span class="p">)),</span> 
+ <span class="n">rec</span><span class="p">(</span>
+<span class="nb">type</span><span class="o">:=</span><span class="s2">&quot;line&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">:=</span><span class="s2">&quot;min # boxes&quot;</span><span class="p">,</span>
+<span class="p">)],</span>
+<span class="p">[</span><span class="n">realizable</span><span class="p">,</span> <span class="n">x</span><span class="o">-&gt;</span><span class="n">Maximum</span><span class="p">(</span><span class="n">List</span><span class="p">(</span><span class="n">RestrictedPartitions</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">sizes</span><span class="p">),</span><span class="n">Length</span><span class="p">)),</span> 
+ <span class="n">rec</span><span class="p">(</span>
+<span class="nb">type</span><span class="o">:=</span><span class="s2">&quot;line&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">:=</span><span class="s2">&quot;max # boxes&quot;</span><span class="p">,</span>
+<span class="p">)]</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/javascript">( function ( element ) {
+if ( !window.JUPVIZLibs ) window.JUPVIZLibs = { };
+if ( !window.JUPVIZLibs["main"] ) {
+window.createVisualization=function(element,data,callback){if(window.VisualizationTools[data.tool])window.VisualizationTools[data.tool](element,data,callback);else{window.VisualizationTools.html(element,{data:{html:'Error: No known visualization tool, "'+data.tool+'."'}},callback)}};window.VisualizationTools={html:function(element,json,callback){var div=document.createElement("div");element.appendChild(div);div.innerHTML=json.data.html;if(json.width)$(div).width(json.width);if(json.height)$(div).height(json.height);callback(element,div)}};window.resizeToShowContents=function(element){var maxima={right:0,bottom:0};$(element).find("*").each(function(idx,elt){var $elt=$(elt);var right=$elt.position().left+$elt.outerWidth();var bottom=$elt.position().top+$elt.outerHeight();maxima={right:Math.max(right,maxima.right),bottom:Math.max(bottom,maxima.bottom)}});var $element=$(element);$element.width(maxima.right-$element.position().left);$element.height(maxima.bottom-$element.position().top)};
+    window.JUPVIZLibs["main"] = 'loaded';
+}
+if ( !window.JUPVIZLibs["viz-tool-plotly"] ) {
+window.requirejs.config({paths:{plotly:"https://cdn.plot.ly/plotly-latest.min"}});window.VisualizationTools.plotly=function(element,json,callback){require(["plotly"],function(plotly){plotly.newPlot(element,json.data);callback(element,element.childNodes[0])})};
+    window.JUPVIZLibs["viz-tool-plotly"] = 'loaded';
+}
+window.createVisualization(element,{"data" : {"data" : [{"x" : [0,6,9,12,15,18,20,21,24,26,27,29,30,32,33,35,36,38,39,40,41,42,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100],"y" : [1,1,1,1,1,2,1,1,2,1,2,1,2,1,2,1,3,2,2,1,1,3,2,3,1,2,3,1,2,3,1,2,4,1,3,3,2,2,5,1,3,4,2,3,5,2,3,5,2,3,6,2,4,5,3,3,7,2,5,6,3,4,7,3,5,7,3,5,8,3,6,7,4,5,9,3,7,8,5],"type" : "bar"},{"x" : [0,6,9,12,15,18,20,21,24,26,27,29,30,32,33,35,36,38,39,40,41,42,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100],"y" : [0,1,1,2,2,2,1,3,3,2,3,2,4,3,4,3,4,3,5,2,4,5,4,5,3,4,6,3,5,6,4,5,6,4,5,7,4,6,3,5,6,7,5,6,4,5,7,4,6,7,5,6,7,5,6,8,5,7,4,6,7,8,6,7,5,6,8,5,7,8,6,7,8,6,7,9,6,8,5],"name" : "min # boxes","type" : "line"},{"x" : [0,6,9,12,15,18,20,21,24,26,27,29,30,32,33,35,36,38,39,40,41,42,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100],"y" : [0,1,1,2,2,3,1,3,4,2,4,2,5,3,5,3,6,4,6,2,4,7,5,7,3,5,8,3,6,8,4,6,9,4,7,9,5,7,10,5,8,10,6,8,11,6,9,11,7,9,12,7,10,12,8,10,13,8,11,13,9,11,14,9,12,14,10,12,15,10,13,15,11,13,16,11,14,16,12],"name" : "max # boxes","type" : "line"}],"layout" : {"height" : 400,"title" : "Different ways to buy this many Nuggets","xaxis" : {"title" : "number of Nuggets, n"},"yaxis" : {"title" : "number of expressions of n in terms of the boxes"}}},"tool" : "plotly"}
+,function(element,visualization){
+});
+} )( element.get( 0 ) )</script></div>
+</div>
+<p>Let us have a closer look at the number of ways one can buy 150 nuggets.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="o">:=</span><span class="n">RestrictedPartitions</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span><span class="n">sizes</span><span class="p">);;</span>
+<span class="n">ls</span><span class="o">:=</span><span class="n">List</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">Length</span><span class="p">);;</span>
+<span class="n">Plot</span><span class="p">(</span><span class="n">Set</span><span class="p">(</span><span class="n">ls</span><span class="p">),</span><span class="n">x</span><span class="o">-&gt;</span><span class="n">Length</span><span class="p">(</span><span class="n">Filtered</span><span class="p">(</span><span class="n">ls</span><span class="p">,</span><span class="n">l</span><span class="o">-&gt;</span><span class="n">l</span><span class="o">=</span><span class="n">x</span><span class="p">)),</span> <span class="n">rec</span><span class="p">(</span><span class="nb">type</span><span class="o">:=</span><span class="s2">&quot;pie&quot;</span><span class="p">,</span> <span class="n">height</span><span class="o">:=</span><span class="mi">500</span><span class="p">,</span> 
+<span class="n">title</span><span class="o">:=</span><span class="s2">&quot;Classifying the number of different ways to buy 150 Nuggets, depending on the number of boxes needed&quot;</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/javascript">( function ( element ) {
+if ( !window.JUPVIZLibs ) window.JUPVIZLibs = { };
+if ( !window.JUPVIZLibs["main"] ) {
+window.createVisualization=function(element,data,callback){if(window.VisualizationTools[data.tool])window.VisualizationTools[data.tool](element,data,callback);else{window.VisualizationTools.html(element,{data:{html:'Error: No known visualization tool, "'+data.tool+'."'}},callback)}};window.VisualizationTools={html:function(element,json,callback){var div=document.createElement("div");element.appendChild(div);div.innerHTML=json.data.html;if(json.width)$(div).width(json.width);if(json.height)$(div).height(json.height);callback(element,div)}};window.resizeToShowContents=function(element){var maxima={right:0,bottom:0};$(element).find("*").each(function(idx,elt){var $elt=$(elt);var right=$elt.position().left+$elt.outerWidth();var bottom=$elt.position().top+$elt.outerHeight();maxima={right:Math.max(right,maxima.right),bottom:Math.max(bottom,maxima.bottom)}});var $element=$(element);$element.width(maxima.right-$element.position().left);$element.height(maxima.bottom-$element.position().top)};
+    window.JUPVIZLibs["main"] = 'loaded';
+}
+if ( !window.JUPVIZLibs["viz-tool-plotly"] ) {
+window.requirejs.config({paths:{plotly:"https://cdn.plot.ly/plotly-latest.min"}});window.VisualizationTools.plotly=function(element,json,callback){require(["plotly"],function(plotly){plotly.newPlot(element,json.data);callback(element,element.childNodes[0])})};
+    window.JUPVIZLibs["viz-tool-plotly"] = 'loaded';
+}
+window.createVisualization(element,{"data" : {"data" : [{"values" : [1,1,1,1,1,1,2,2,1,1,1,1,1,1,1],"type" : "pie","labels" : [10,11,13,14,15,16,17,18,19,20,21,22,23,24,25]}],"layout" : {"height" : 500,"title" : "Classifying the number of different ways to buy 150 Nuggets, depending on the number of boxes needed"}},"tool" : "plotly"}
+,function(element,visualization){
+});
+} )( element.get( 0 ) )</script></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Plot</span><span class="p">(</span><span class="n">Set</span><span class="p">(</span><span class="n">ls</span><span class="p">),</span><span class="n">x</span><span class="o">-&gt;</span><span class="n">Length</span><span class="p">(</span><span class="n">Filtered</span><span class="p">(</span><span class="n">ls</span><span class="p">,</span><span class="n">l</span><span class="o">-&gt;</span><span class="n">l</span><span class="o">=</span><span class="n">x</span><span class="p">)),</span> <span class="n">rec</span><span class="p">(</span><span class="n">xaxis</span><span class="o">:=</span><span class="s2">&quot;Number of boxes needed for 150 nuggets&quot;</span><span class="p">,</span> 
+<span class="n">yaxis</span><span class="o">:=</span><span class="s2">&quot;# possibilities&quot;</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/javascript">( function ( element ) {
+if ( !window.JUPVIZLibs ) window.JUPVIZLibs = { };
+if ( !window.JUPVIZLibs["main"] ) {
+window.createVisualization=function(element,data,callback){if(window.VisualizationTools[data.tool])window.VisualizationTools[data.tool](element,data,callback);else{window.VisualizationTools.html(element,{data:{html:'Error: No known visualization tool, "'+data.tool+'."'}},callback)}};window.VisualizationTools={html:function(element,json,callback){var div=document.createElement("div");element.appendChild(div);div.innerHTML=json.data.html;if(json.width)$(div).width(json.width);if(json.height)$(div).height(json.height);callback(element,div)}};window.resizeToShowContents=function(element){var maxima={right:0,bottom:0};$(element).find("*").each(function(idx,elt){var $elt=$(elt);var right=$elt.position().left+$elt.outerWidth();var bottom=$elt.position().top+$elt.outerHeight();maxima={right:Math.max(right,maxima.right),bottom:Math.max(bottom,maxima.bottom)}});var $element=$(element);$element.width(maxima.right-$element.position().left);$element.height(maxima.bottom-$element.position().top)};
+    window.JUPVIZLibs["main"] = 'loaded';
+}
+if ( !window.JUPVIZLibs["viz-tool-plotly"] ) {
+window.requirejs.config({paths:{plotly:"https://cdn.plot.ly/plotly-latest.min"}});window.VisualizationTools.plotly=function(element,json,callback){require(["plotly"],function(plotly){plotly.newPlot(element,json.data);callback(element,element.childNodes[0])})};
+    window.JUPVIZLibs["viz-tool-plotly"] = 'loaded';
+}
+window.createVisualization(element,{"data" : {"data" : [{"x" : [10,11,13,14,15,16,17,18,19,20,21,22,23,24,25],"y" : [1,1,1,1,1,1,2,2,1,1,1,1,1,1,1],"type" : "line"}],"layout" : {"height" : 400,"xaxis" : {"title" : "Number of boxes needed for 150 nuggets"},"yaxis" : {"title" : "# possibilities"}}},"tool" : "plotly"}
+,function(element,visualization){
+});
+} )( element.get( 0 ) )</script></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[ [ 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6 ], [ 9, 9, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6 ], [ 9, 9, 9, 9, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6 ], [ 9, 9, 9, 9, 9, 9, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6 ], [ 9, 9, 9, 9, 9, 9, 9, 9, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6 ], [ 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6 ], [ 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 6, 6, 6, 6, 6, 6, 6 ], [ 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 6, 6, 6, 6 ], [ 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 6 ], [ 20, 20, 20, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6 ], [ 20, 20, 20, 9, 9, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6 ], [ 20, 20, 20, 9, 9, 9, 9, 6, 6, 6, 6, 6, 6, 6, 6, 6 ], [ 20, 20, 20, 9, 9, 9, 9, 9, 9, 6, 6, 6, 6, 6, 6 ], [ 20, 20, 20, 9, 9, 9, 9, 9, 9, 9, 9, 6, 6, 6 ], [ 20, 20, 20, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9 ], [ 20, 20, 20, 20, 20, 20, 6, 6, 6, 6, 6 ], [ 20, 20, 20, 20, 20, 20, 9, 9, 6, 6 ] ]
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can, for every possible choice, plot the number of boxes needed for each “realizable” amount of nuggets</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">l</span><span class="o">:=</span><span class="p">[];;</span>
+<span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">Intersection</span><span class="p">([</span><span class="mf">0.</span><span class="o">.</span><span class="mi">50</span><span class="p">],</span><span class="n">S</span><span class="p">)</span> <span class="n">do</span>
+    <span class="n">Append</span><span class="p">(</span><span class="n">l</span><span class="p">,</span><span class="n">List</span><span class="p">(</span><span class="n">FactorizationsIntegerWRTList</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="n">sizes</span><span class="p">),</span> <span class="n">f</span><span class="o">-&gt;</span><span class="p">[</span><span class="n">s</span><span class="p">,</span><span class="n">Sum</span><span class="p">(</span><span class="n">f</span><span class="p">)]));;</span>
+<span class="n">od</span><span class="p">;</span>
+<span class="n">Plot</span><span class="p">(</span><span class="n">l</span><span class="p">,</span><span class="n">rec</span><span class="p">(</span><span class="nb">type</span><span class="o">:=</span><span class="s2">&quot;scatter&quot;</span><span class="p">,</span><span class="n">tool</span><span class="o">:=</span><span class="s2">&quot;canvasjs&quot;</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/javascript">( function ( element ) {
+if ( !window.JUPVIZLibs ) window.JUPVIZLibs = { };
+if ( !window.JUPVIZLibs["main"] ) {
+window.createVisualization=function(element,data,callback){if(window.VisualizationTools[data.tool])window.VisualizationTools[data.tool](element,data,callback);else{window.VisualizationTools.html(element,{data:{html:'Error: No known visualization tool, "'+data.tool+'."'}},callback)}};window.VisualizationTools={html:function(element,json,callback){var div=document.createElement("div");element.appendChild(div);div.innerHTML=json.data.html;if(json.width)$(div).width(json.width);if(json.height)$(div).height(json.height);callback(element,div)}};window.resizeToShowContents=function(element){var maxima={right:0,bottom:0};$(element).find("*").each(function(idx,elt){var $elt=$(elt);var right=$elt.position().left+$elt.outerWidth();var bottom=$elt.position().top+$elt.outerHeight();maxima={right:Math.max(right,maxima.right),bottom:Math.max(bottom,maxima.bottom)}});var $element=$(element);$element.width(maxima.right-$element.position().left);$element.height(maxima.bottom-$element.position().top)};
+    window.JUPVIZLibs["main"] = 'loaded';
+}
+if ( !window.JUPVIZLibs["viz-tool-canvasjs"] ) {
+window.requirejs.config({paths:{canvasjs:"https://cdnjs.cloudflare.com/ajax/libs/canvasjs/1.7.0/canvasjs.min"}});window.VisualizationTools.canvasjs=function(element,json,callback){require(["canvasjs"],function(canvasjs){new window.CanvasJS.Chart(element,json.data).render();window.resizeToShowContents(element);callback(element,element.childNodes[0])})};
+    window.JUPVIZLibs["viz-tool-canvasjs"] = 'loaded';
+}
+window.createVisualization(element,{"data" : {"data" : [{"type" : "scatter","dataPoints" : [{"x" : 0,"y" : 0},{"x" : 6,"y" : 1},{"x" : 9,"y" : 1},{"x" : 12,"y" : 2},{"x" : 15,"y" : 2},{"x" : 18,"y" : 3},{"x" : 18,"y" : 2},{"x" : 20,"y" : 1},{"x" : 21,"y" : 3},{"x" : 24,"y" : 4},{"x" : 24,"y" : 3},{"x" : 26,"y" : 2},{"x" : 27,"y" : 4},{"x" : 27,"y" : 3},{"x" : 29,"y" : 2},{"x" : 30,"y" : 5},{"x" : 30,"y" : 4},{"x" : 32,"y" : 3},{"x" : 33,"y" : 5},{"x" : 33,"y" : 4},{"x" : 35,"y" : 3},{"x" : 36,"y" : 6},{"x" : 36,"y" : 5},{"x" : 36,"y" : 4},{"x" : 38,"y" : 4},{"x" : 38,"y" : 3},{"x" : 39,"y" : 6},{"x" : 39,"y" : 5},{"x" : 40,"y" : 2},{"x" : 41,"y" : 4},{"x" : 42,"y" : 7},{"x" : 42,"y" : 6},{"x" : 42,"y" : 5},{"x" : 44,"y" : 5},{"x" : 44,"y" : 4},{"x" : 45,"y" : 7},{"x" : 45,"y" : 6},{"x" : 45,"y" : 5},{"x" : 46,"y" : 3},{"x" : 47,"y" : 5},{"x" : 47,"y" : 4},{"x" : 48,"y" : 8},{"x" : 48,"y" : 7},{"x" : 48,"y" : 6},{"x" : 49,"y" : 3},{"x" : 50,"y" : 6},{"x" : 50,"y" : 5}]}],"height" : 400,"animationEnabled" : true},"tool" : "canvasjs"}
+,function(element,visualization){
+});
+} )( element.get( 0 ) )</script></div>
+</div>
+<p>Let us illustrate a naïve way to determine all possible ways to buy <span class="math notranslate nohighlight">\(n\)</span> nuggets with boxes of sizes <span class="math notranslate nohighlight">\(\{s_1,\ldots,s_k\}\)</span>. The idea is quite simple, and we can draw it in a tree. We discriminate the possible ways depending on which we use the box of size <span class="math notranslate nohighlight">\(s_1\)</span> or not, that is, <span class="math notranslate nohighlight">\(n\in\langle s_1,\ldots,s_k\}\)</span> if either <span class="math notranslate nohighlight">\(n-s_1\in\langle s_1,\ldots,s_k\rangle\)</span> or <span class="math notranslate nohighlight">\(n\in\langle s_2,\ldots, s_k\rangle\)</span> (and proceed recursively).</p>
+<p>If in this process we reach a negative integer, we stop, and if we arrive to zero, then we trace the boxes we have used. We will draw this leafs of the tree as a square, and when hovering with the mouse over them, we will show the boxes used to get <span class="math notranslate nohighlight">\(n\)</span> nuggets.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>treefrancy:=function(n,sizes)
+    local l, sons, t,  ps, canvas, graphTree,shpr;
+
+    sons:=function(m,lm,szs,shpm)
+        local ns,shp;
+        if m&lt;0 then 
+            return;
+        fi;
+        ns:=Length(szs);
+        if ns=0 then 
+            return;
+        fi;
+        if m=szs[1] then 
+            shp:=Shape(ShapeType!.SQUARE, String(0));
+            SetSize(shp,5);
+            Add(graphTree,shp);
+            SetParentShape(shp,shpm);
+            Add(shp,FrancyMessage(String(Concatenation(lm,[szs[1]]))));
+            Add(ps,Concatenation(lm,[szs[1]]));
+        fi;
+        if (m-szs[1]&gt;0) then
+            shp:=Shape(ShapeType!.CIRCLE, String(m-szs[1]));
+            SetSize(shp,5);
+            Add(graphTree,shp);
+            SetParentShape(shp,shpm);
+            Add(ps,Concatenation(lm,[szs[1]]));
+            sons(m-szs[1],Concatenation(lm,[szs[1]]),szs,shp);
+        fi;
+        sons(m,lm,szs{[2..ns]},shpm);
+    end;
+
+    t:=[];
+    l:=[];
+    ps:=[];
+    graphTree := Graph(GraphType.TREE);
+    SetCollapsed(graphTree,false);
+    shpr:=Shape(ShapeType!.CIRCLE, String(n));
+    SetSize(shpr,5);
+    #Add(shpr,FrancyMessage(Concatenation(String(n),&quot; &quot;,String(l))));
+    Add(graphTree,shpr);
+    canvas:=Canvas(&quot;Boxes&quot;);
+    SetTexTypesetting(canvas, true);
+    Add(canvas,graphTree);
+    sons(n,l,sizes,shpr);
+    return Draw(canvas);
+end;
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>function( n, sizes ) ... end
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">treefrancy</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span><span class="n">sizes</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">S</span><span class="o">:=</span><span class="n">NumericalSemigroup</span><span class="p">(</span><span class="n">sizes</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>Numerical semigroup with 3 generators
+</pre></div>
+</div>
+</div>
+</div>
+<p>There are other ways to construct all possible combinations of boxes to reach the desired amount of nuggets. We can think about <span class="math notranslate nohighlight">\(\langle 6, 9 , 20\rangle\)</span> as an object generated by three elements together with some relations among these generators (relations). We can use <code class="docutils literal notranslate"><span class="pre">MinimalPresentation</span></code> to obtain these relations.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mps</span><span class="o">:=</span><span class="n">MinimalPresentation</span><span class="p">(</span><span class="n">S</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[ [ [ 1, 6, 0 ], [ 0, 0, 3 ] ], [ [ 3, 0, 0 ], [ 0, 2, 0 ] ] ]
+</pre></div>
+</div>
+</div>
+</div>
+<p>One may think about these relations as trades. So fors instance, one can change tree boxes of size six with two of size nine.</p>
+<p>Let us write a graph depicting all trades performed starting from a known possible choice of boxes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">trades</span><span class="o">:=</span><span class="n">function</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">tds</span><span class="p">)</span>
+    <span class="n">local</span> <span class="n">nonneg</span><span class="p">,</span> <span class="n">sons</span><span class="p">,</span> <span class="n">edges</span><span class="p">,</span> <span class="n">vertices</span><span class="p">;</span>
+
+    <span class="n">nonneg</span><span class="o">:=</span><span class="n">function</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">ForAll</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">x</span><span class="o">-&gt;</span> <span class="n">x</span><span class="o">&gt;=</span><span class="mi">0</span><span class="p">);</span>
+    <span class="n">end</span><span class="p">;</span>
+
+    <span class="n">sons</span><span class="o">:=</span> <span class="n">function</span><span class="p">(</span><span class="n">fc</span><span class="p">)</span>
+        <span class="n">local</span> <span class="n">ptds</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span><span class="n">fcs</span><span class="p">;</span>
+        <span class="k">if</span> <span class="ow">not</span><span class="p">(</span><span class="n">nonneg</span><span class="p">(</span><span class="n">fc</span><span class="p">))</span> <span class="n">then</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="n">fi</span><span class="p">;</span>
+        <span class="n">ptds</span><span class="o">:=</span><span class="n">Filtered</span><span class="p">(</span><span class="n">tds</span><span class="p">,</span> <span class="n">t</span><span class="o">-&gt;</span><span class="n">nonneg</span><span class="p">(</span><span class="n">fc</span><span class="o">-</span><span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">]));</span>
+        <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">ptds</span> <span class="n">do</span>
+            <span class="n">fcs</span><span class="o">:=</span><span class="n">fc</span><span class="o">-</span><span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">t</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+            <span class="n">Add</span><span class="p">(</span><span class="n">vertices</span><span class="p">,</span><span class="n">fcs</span><span class="p">);</span>
+            <span class="n">Add</span><span class="p">(</span><span class="n">edges</span><span class="p">,[</span><span class="n">fc</span><span class="p">,</span><span class="n">fcs</span><span class="p">]);</span>
+            <span class="n">sons</span><span class="p">(</span><span class="n">fcs</span><span class="p">);</span>
+        <span class="n">od</span><span class="p">;</span>
+    <span class="n">end</span><span class="p">;</span>
+    
+    <span class="n">vertices</span><span class="o">:=</span><span class="p">[</span><span class="n">f</span><span class="p">];</span>
+    <span class="n">edges</span><span class="o">:=</span><span class="p">[];</span>
+    <span class="n">sons</span><span class="p">(</span><span class="n">f</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="n">PlotGraph</span><span class="p">(</span><span class="n">vertices</span><span class="p">,</span> <span class="n">edges</span><span class="p">,</span> <span class="n">rec</span><span class="p">(</span><span class="n">directed</span><span class="o">:=</span><span class="n">true</span><span class="p">,</span> <span class="n">layout</span><span class="o">:=</span><span class="s2">&quot;cose&quot;</span><span class="p">,</span> <span class="n">arrowscale</span><span class="o">:=</span><span class="mi">2</span><span class="p">));</span>
+<span class="n">end</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>function( f, tds ) ... end
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">trades</span><span class="p">([</span><span class="mi">20</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">mps</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/javascript">( function ( element ) {
+if ( !window.JUPVIZLibs ) window.JUPVIZLibs = { };
+if ( !window.JUPVIZLibs["main"] ) {
+window.createVisualization=function(element,data,callback){if(window.VisualizationTools[data.tool])window.VisualizationTools[data.tool](element,data,callback);else{window.VisualizationTools.html(element,{data:{html:'Error: No known visualization tool, "'+data.tool+'."'}},callback)}};window.VisualizationTools={html:function(element,json,callback){var div=document.createElement("div");element.appendChild(div);div.innerHTML=json.data.html;if(json.width)$(div).width(json.width);if(json.height)$(div).height(json.height);callback(element,div)}};window.resizeToShowContents=function(element){var maxima={right:0,bottom:0};$(element).find("*").each(function(idx,elt){var $elt=$(elt);var right=$elt.position().left+$elt.outerWidth();var bottom=$elt.position().top+$elt.outerHeight();maxima={right:Math.max(right,maxima.right),bottom:Math.max(bottom,maxima.bottom)}});var $element=$(element);$element.width(maxima.right-$element.position().left);$element.height(maxima.bottom-$element.position().top)};
+    window.JUPVIZLibs["main"] = 'loaded';
+}
+if ( !window.JUPVIZLibs["viz-tool-cytoscape"] ) {
+window.requirejs.config({paths:{cytoscape:"https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.2.16/cytoscape.min"}});window.VisualizationTools.cytoscape=function(element,json,callback){require(["cytoscape"],function(cytoscape){if(json.width)$(element).width(json.width);if(json.height)$(element).height(json.height);json.data.container=element;callback(element,cytoscape(json.data))})};
+    window.JUPVIZLibs["viz-tool-cytoscape"] = 'loaded';
+}
+window.createVisualization(element,{"data" : {"elements" : [{"data" : {"id" : "[ 20, 0, 0 ]"}},{"data" : {"id" : "[ 17, 2, 0 ]"}},{"data" : {"id" : "[ 14, 4, 0 ]"}},{"data" : {"id" : "[ 11, 6, 0 ]"}},{"data" : {"id" : "[ 10, 0, 3 ]"}},{"data" : {"id" : "[ 7, 2, 3 ]"}},{"data" : {"id" : "[ 4, 4, 3 ]"}},{"data" : {"id" : "[ 1, 6, 3 ]"}},{"data" : {"id" : "[ 0, 0, 6 ]"}},{"data" : {"id" : "[ 8, 8, 0 ]"}},{"data" : {"id" : "[ 7, 2, 3 ]"}},{"data" : {"id" : "[ 4, 4, 3 ]"}},{"data" : {"id" : "[ 1, 6, 3 ]"}},{"data" : {"id" : "[ 0, 0, 6 ]"}},{"data" : {"id" : "[ 5, 10, 0 ]"}},{"data" : {"id" : "[ 4, 4, 3 ]"}},{"data" : {"id" : "[ 1, 6, 3 ]"}},{"data" : {"id" : "[ 0, 0, 6 ]"}},{"data" : {"id" : "[ 2, 12, 0 ]"}},{"data" : {"id" : "[ 1, 6, 3 ]"}},{"data" : {"id" : "[ 0, 0, 6 ]"}},{"data" : {"source" : "[ 20, 0, 0 ]","target" : "[ 17, 2, 0 ]"}},{"data" : {"source" : "[ 17, 2, 0 ]","target" : "[ 14, 4, 0 ]"}},{"data" : {"source" : "[ 14, 4, 0 ]","target" : "[ 11, 6, 0 ]"}},{"data" : {"source" : "[ 11, 6, 0 ]","target" : "[ 10, 0, 3 ]"}},{"data" : {"source" : "[ 10, 0, 3 ]","target" : "[ 7, 2, 3 ]"}},{"data" : {"source" : "[ 7, 2, 3 ]","target" : "[ 4, 4, 3 ]"}},{"data" : {"source" : "[ 4, 4, 3 ]","target" : "[ 1, 6, 3 ]"}},{"data" : {"source" : "[ 1, 6, 3 ]","target" : "[ 0, 0, 6 ]"}},{"data" : {"source" : "[ 11, 6, 0 ]","target" : "[ 8, 8, 0 ]"}},{"data" : {"source" : "[ 8, 8, 0 ]","target" : "[ 7, 2, 3 ]"}},{"data" : {"source" : "[ 7, 2, 3 ]","target" : "[ 4, 4, 3 ]"}},{"data" : {"source" : "[ 4, 4, 3 ]","target" : "[ 1, 6, 3 ]"}},{"data" : {"source" : "[ 1, 6, 3 ]","target" : "[ 0, 0, 6 ]"}},{"data" : {"source" : "[ 8, 8, 0 ]","target" : "[ 5, 10, 0 ]"}},{"data" : {"source" : "[ 5, 10, 0 ]","target" : "[ 4, 4, 3 ]"}},{"data" : {"source" : "[ 4, 4, 3 ]","target" : "[ 1, 6, 3 ]"}},{"data" : {"source" : "[ 1, 6, 3 ]","target" : "[ 0, 0, 6 ]"}},{"data" : {"source" : "[ 5, 10, 0 ]","target" : "[ 2, 12, 0 ]"}},{"data" : {"source" : "[ 2, 12, 0 ]","target" : "[ 1, 6, 3 ]"}},{"data" : {"source" : "[ 1, 6, 3 ]","target" : "[ 0, 0, 6 ]"}}],"layout" : {"name" : "cose"},"style" : [{"style" : {"content" : "data(id)"},"selector" : "node"},{"style" : {"mid-target-arrow-shape" : "vee","arrow-scale" : 2},"selector" : "edge"}]},"height" : 400,"tool" : "cytoscape"}
+,function(element,visualization){
+});
+} )( element.get( 0 ) )</script></div>
+</div>
+<p>Since there are only two relations (trades), we can force a grid shape in the ‘trading’ graph. Vertices in <code class="docutils literal notranslate"><span class="pre">jupyterviz</span></code> graphs can store their position.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">step</span><span class="o">:=</span><span class="mi">75</span><span class="p">;;</span>
+<span class="n">tradespreset</span><span class="o">:=</span><span class="n">function</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">tds</span><span class="p">)</span>
+    <span class="n">local</span> <span class="n">nonneg</span><span class="p">,</span> <span class="n">sons</span><span class="p">,</span> <span class="n">edges</span><span class="p">,</span> <span class="n">vertices</span><span class="p">;</span>
+
+    <span class="n">nonneg</span><span class="o">:=</span><span class="n">function</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">ForAll</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">x</span><span class="o">-&gt;</span> <span class="n">x</span><span class="o">&gt;=</span><span class="mi">0</span><span class="p">);</span>
+    <span class="n">end</span><span class="p">;</span>
+
+    <span class="n">sons</span><span class="o">:=</span> <span class="n">function</span><span class="p">(</span><span class="n">fc</span><span class="p">,</span><span class="n">vx</span><span class="p">,</span><span class="n">vy</span><span class="p">)</span>
+        <span class="n">local</span> <span class="n">t</span><span class="p">,</span><span class="n">fcs</span><span class="p">;</span>
+        <span class="k">if</span> <span class="ow">not</span><span class="p">(</span><span class="n">nonneg</span><span class="p">(</span><span class="n">fc</span><span class="p">))</span> <span class="n">then</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="n">fi</span><span class="p">;</span>
+        <span class="k">if</span> <span class="n">nonneg</span><span class="p">(</span><span class="n">fc</span><span class="o">-</span><span class="n">tds</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span> <span class="n">then</span>
+            <span class="n">fcs</span><span class="o">:=</span><span class="n">fc</span><span class="o">-</span><span class="n">tds</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">tds</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">];</span>
+            <span class="n">Add</span><span class="p">(</span><span class="n">vertices</span><span class="p">,</span><span class="n">rec</span><span class="p">(</span><span class="n">name</span><span class="o">:=</span><span class="n">String</span><span class="p">(</span><span class="n">fcs</span><span class="p">),</span><span class="n">x</span><span class="o">:=</span><span class="n">vx</span><span class="o">+</span><span class="n">step</span><span class="p">,</span><span class="n">y</span><span class="o">:=</span><span class="n">vy</span><span class="p">));</span>
+            <span class="n">Add</span><span class="p">(</span><span class="n">edges</span><span class="p">,[</span><span class="n">fc</span><span class="p">,</span><span class="n">fcs</span><span class="p">]);</span>
+            <span class="n">sons</span><span class="p">(</span><span class="n">fcs</span><span class="p">,</span><span class="n">vx</span><span class="o">+</span><span class="n">step</span><span class="p">,</span><span class="n">vy</span><span class="p">);</span>
+        <span class="n">fi</span><span class="p">;</span>
+        <span class="k">if</span> <span class="n">nonneg</span><span class="p">(</span><span class="n">fc</span><span class="o">-</span><span class="n">tds</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span> <span class="n">then</span>
+            <span class="n">fcs</span><span class="o">:=</span><span class="n">fc</span><span class="o">-</span><span class="n">tds</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">tds</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">2</span><span class="p">];</span>
+            <span class="n">Add</span><span class="p">(</span><span class="n">vertices</span><span class="p">,</span><span class="n">rec</span><span class="p">(</span><span class="n">name</span><span class="o">:=</span><span class="n">String</span><span class="p">(</span><span class="n">fcs</span><span class="p">),</span><span class="n">x</span><span class="o">:=</span><span class="n">vx</span><span class="p">,</span><span class="n">y</span><span class="o">:=</span><span class="n">vy</span><span class="o">+</span><span class="n">step</span><span class="p">));</span>
+            <span class="n">Add</span><span class="p">(</span><span class="n">edges</span><span class="p">,[</span><span class="n">fc</span><span class="p">,</span><span class="n">fcs</span><span class="p">]);</span>
+            <span class="n">sons</span><span class="p">(</span><span class="n">fcs</span><span class="p">,</span><span class="n">vx</span><span class="p">,</span><span class="n">vy</span><span class="o">+</span><span class="n">step</span><span class="p">);</span>
+        <span class="n">fi</span><span class="p">;</span>
+    <span class="n">end</span><span class="p">;</span>
+    
+    <span class="n">vertices</span><span class="o">:=</span><span class="p">[</span><span class="n">rec</span><span class="p">(</span><span class="n">name</span><span class="o">:=</span><span class="n">String</span><span class="p">(</span><span class="n">f</span><span class="p">),</span><span class="n">x</span><span class="o">:=</span><span class="mi">0</span><span class="p">,</span><span class="n">y</span><span class="o">:=</span><span class="mi">0</span><span class="p">)];</span>
+    <span class="n">edges</span><span class="o">:=</span><span class="p">[];</span>
+    <span class="n">sons</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="n">PlotGraph</span><span class="p">(</span><span class="n">vertices</span><span class="p">,</span> <span class="n">edges</span><span class="p">,</span> <span class="n">rec</span><span class="p">(</span><span class="n">directed</span><span class="o">:=</span><span class="n">true</span><span class="p">,</span> <span class="n">layout</span><span class="o">:=</span><span class="s2">&quot;preset&quot;</span><span class="p">,</span> <span class="n">arrowscale</span><span class="o">:=</span><span class="mi">2</span><span class="p">));</span>
+<span class="n">end</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>function( f, tds ) ... end
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tradespreset</span><span class="p">([</span><span class="mi">20</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span><span class="n">mps</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/javascript">( function ( element ) {
+if ( !window.JUPVIZLibs ) window.JUPVIZLibs = { };
+if ( !window.JUPVIZLibs["main"] ) {
+window.createVisualization=function(element,data,callback){if(window.VisualizationTools[data.tool])window.VisualizationTools[data.tool](element,data,callback);else{window.VisualizationTools.html(element,{data:{html:'Error: No known visualization tool, "'+data.tool+'."'}},callback)}};window.VisualizationTools={html:function(element,json,callback){var div=document.createElement("div");element.appendChild(div);div.innerHTML=json.data.html;if(json.width)$(div).width(json.width);if(json.height)$(div).height(json.height);callback(element,div)}};window.resizeToShowContents=function(element){var maxima={right:0,bottom:0};$(element).find("*").each(function(idx,elt){var $elt=$(elt);var right=$elt.position().left+$elt.outerWidth();var bottom=$elt.position().top+$elt.outerHeight();maxima={right:Math.max(right,maxima.right),bottom:Math.max(bottom,maxima.bottom)}});var $element=$(element);$element.width(maxima.right-$element.position().left);$element.height(maxima.bottom-$element.position().top)};
+    window.JUPVIZLibs["main"] = 'loaded';
+}
+if ( !window.JUPVIZLibs["viz-tool-cytoscape"] ) {
+window.requirejs.config({paths:{cytoscape:"https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.2.16/cytoscape.min"}});window.VisualizationTools.cytoscape=function(element,json,callback){require(["cytoscape"],function(cytoscape){if(json.width)$(element).width(json.width);if(json.height)$(element).height(json.height);json.data.container=element;callback(element,cytoscape(json.data))})};
+    window.JUPVIZLibs["viz-tool-cytoscape"] = 'loaded';
+}
+window.createVisualization(element,{"data" : {"elements" : [{"data" : {"id" : "[ 20, 0, 0 ]"},"position" : {"x" : 0,"y" : 0}},{"data" : {"id" : "[ 17, 2, 0 ]"},"position" : {"x" : 0,"y" : 75}},{"data" : {"id" : "[ 14, 4, 0 ]"},"position" : {"x" : 0,"y" : 150}},{"data" : {"id" : "[ 11, 6, 0 ]"},"position" : {"x" : 0,"y" : 225}},{"data" : {"id" : "[ 10, 0, 3 ]"},"position" : {"x" : 75,"y" : 225}},{"data" : {"id" : "[ 7, 2, 3 ]"},"position" : {"x" : 75,"y" : 300}},{"data" : {"id" : "[ 4, 4, 3 ]"},"position" : {"x" : 75,"y" : 375}},{"data" : {"id" : "[ 1, 6, 3 ]"},"position" : {"x" : 75,"y" : 450}},{"data" : {"id" : "[ 0, 0, 6 ]"},"position" : {"x" : 150,"y" : 450}},{"data" : {"id" : "[ 8, 8, 0 ]"},"position" : {"x" : 0,"y" : 300}},{"data" : {"id" : "[ 7, 2, 3 ]"},"position" : {"x" : 75,"y" : 300}},{"data" : {"id" : "[ 4, 4, 3 ]"},"position" : {"x" : 75,"y" : 375}},{"data" : {"id" : "[ 1, 6, 3 ]"},"position" : {"x" : 75,"y" : 450}},{"data" : {"id" : "[ 0, 0, 6 ]"},"position" : {"x" : 150,"y" : 450}},{"data" : {"id" : "[ 5, 10, 0 ]"},"position" : {"x" : 0,"y" : 375}},{"data" : {"id" : "[ 4, 4, 3 ]"},"position" : {"x" : 75,"y" : 375}},{"data" : {"id" : "[ 1, 6, 3 ]"},"position" : {"x" : 75,"y" : 450}},{"data" : {"id" : "[ 0, 0, 6 ]"},"position" : {"x" : 150,"y" : 450}},{"data" : {"id" : "[ 2, 12, 0 ]"},"position" : {"x" : 0,"y" : 450}},{"data" : {"id" : "[ 1, 6, 3 ]"},"position" : {"x" : 75,"y" : 450}},{"data" : {"id" : "[ 0, 0, 6 ]"},"position" : {"x" : 150,"y" : 450}},{"data" : {"source" : "[ 20, 0, 0 ]","target" : "[ 17, 2, 0 ]"}},{"data" : {"source" : "[ 17, 2, 0 ]","target" : "[ 14, 4, 0 ]"}},{"data" : {"source" : "[ 14, 4, 0 ]","target" : "[ 11, 6, 0 ]"}},{"data" : {"source" : "[ 11, 6, 0 ]","target" : "[ 10, 0, 3 ]"}},{"data" : {"source" : "[ 10, 0, 3 ]","target" : "[ 7, 2, 3 ]"}},{"data" : {"source" : "[ 7, 2, 3 ]","target" : "[ 4, 4, 3 ]"}},{"data" : {"source" : "[ 4, 4, 3 ]","target" : "[ 1, 6, 3 ]"}},{"data" : {"source" : "[ 1, 6, 3 ]","target" : "[ 0, 0, 6 ]"}},{"data" : {"source" : "[ 11, 6, 0 ]","target" : "[ 8, 8, 0 ]"}},{"data" : {"source" : "[ 8, 8, 0 ]","target" : "[ 7, 2, 3 ]"}},{"data" : {"source" : "[ 7, 2, 3 ]","target" : "[ 4, 4, 3 ]"}},{"data" : {"source" : "[ 4, 4, 3 ]","target" : "[ 1, 6, 3 ]"}},{"data" : {"source" : "[ 1, 6, 3 ]","target" : "[ 0, 0, 6 ]"}},{"data" : {"source" : "[ 8, 8, 0 ]","target" : "[ 5, 10, 0 ]"}},{"data" : {"source" : "[ 5, 10, 0 ]","target" : "[ 4, 4, 3 ]"}},{"data" : {"source" : "[ 4, 4, 3 ]","target" : "[ 1, 6, 3 ]"}},{"data" : {"source" : "[ 1, 6, 3 ]","target" : "[ 0, 0, 6 ]"}},{"data" : {"source" : "[ 5, 10, 0 ]","target" : "[ 2, 12, 0 ]"}},{"data" : {"source" : "[ 2, 12, 0 ]","target" : "[ 1, 6, 3 ]"}},{"data" : {"source" : "[ 1, 6, 3 ]","target" : "[ 0, 0, 6 ]"}}],"layout" : {"name" : "preset"},"style" : [{"style" : {"content" : "data(id)"},"selector" : "node"},{"style" : {"mid-target-arrow-shape" : "vee","arrow-scale" : 2},"selector" : "edge"}]},"height" : 400,"tool" : "cytoscape"}
+,function(element,visualization){
+});
+} )( element.get( 0 ) )</script></div>
+</div>
+<p>Minimal presentations (trade systems) might not be unique. For our sizes of boxes we have another choices, since in the first component of the first trade, we can apply the second to obtain a new trade [[4,4,0],[0,0,3]], and applying it once more, we obtain [[7,2,0],[0,0,3]].</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">20</span><span class="p">]</span><span class="o">=</span><span class="p">[</span><span class="mi">7</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">20</span><span class="p">];</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>true
+</pre></div>
+</div>
+</div>
+</div>
+<p>These are indeed the factorizations of 60.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">FactorizationsIntegerWRTList</span><span class="p">(</span><span class="mi">60</span><span class="p">,</span><span class="n">sizes</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[ [ 10, 0, 0 ], [ 7, 2, 0 ], [ 4, 4, 0 ], [ 1, 6, 0 ], [ 0, 0, 3 ] ]
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can choose another trade system, and will obtain another ‘trading’ graph.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tradespreset</span><span class="p">([</span><span class="mi">20</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[[[</span><span class="mi">10</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">]],[[</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">]]]);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/javascript">( function ( element ) {
+if ( !window.JUPVIZLibs ) window.JUPVIZLibs = { };
+if ( !window.JUPVIZLibs["main"] ) {
+window.createVisualization=function(element,data,callback){if(window.VisualizationTools[data.tool])window.VisualizationTools[data.tool](element,data,callback);else{window.VisualizationTools.html(element,{data:{html:'Error: No known visualization tool, "'+data.tool+'."'}},callback)}};window.VisualizationTools={html:function(element,json,callback){var div=document.createElement("div");element.appendChild(div);div.innerHTML=json.data.html;if(json.width)$(div).width(json.width);if(json.height)$(div).height(json.height);callback(element,div)}};window.resizeToShowContents=function(element){var maxima={right:0,bottom:0};$(element).find("*").each(function(idx,elt){var $elt=$(elt);var right=$elt.position().left+$elt.outerWidth();var bottom=$elt.position().top+$elt.outerHeight();maxima={right:Math.max(right,maxima.right),bottom:Math.max(bottom,maxima.bottom)}});var $element=$(element);$element.width(maxima.right-$element.position().left);$element.height(maxima.bottom-$element.position().top)};
+    window.JUPVIZLibs["main"] = 'loaded';
+}
+if ( !window.JUPVIZLibs["viz-tool-cytoscape"] ) {
+window.requirejs.config({paths:{cytoscape:"https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.2.16/cytoscape.min"}});window.VisualizationTools.cytoscape=function(element,json,callback){require(["cytoscape"],function(cytoscape){if(json.width)$(element).width(json.width);if(json.height)$(element).height(json.height);json.data.container=element;callback(element,cytoscape(json.data))})};
+    window.JUPVIZLibs["viz-tool-cytoscape"] = 'loaded';
+}
+window.createVisualization(element,{"data" : {"elements" : [{"data" : {"id" : "[ 20, 0, 0 ]"},"position" : {"x" : 0,"y" : 0}},{"data" : {"id" : "[ 10, 0, 3 ]"},"position" : {"x" : 75,"y" : 0}},{"data" : {"id" : "[ 0, 0, 6 ]"},"position" : {"x" : 150,"y" : 0}},{"data" : {"id" : "[ 7, 2, 3 ]"},"position" : {"x" : 75,"y" : 75}},{"data" : {"id" : "[ 4, 4, 3 ]"},"position" : {"x" : 75,"y" : 150}},{"data" : {"id" : "[ 1, 6, 3 ]"},"position" : {"x" : 75,"y" : 225}},{"data" : {"id" : "[ 17, 2, 0 ]"},"position" : {"x" : 0,"y" : 75}},{"data" : {"id" : "[ 7, 2, 3 ]"},"position" : {"x" : 75,"y" : 75}},{"data" : {"id" : "[ 4, 4, 3 ]"},"position" : {"x" : 75,"y" : 150}},{"data" : {"id" : "[ 1, 6, 3 ]"},"position" : {"x" : 75,"y" : 225}},{"data" : {"id" : "[ 14, 4, 0 ]"},"position" : {"x" : 0,"y" : 150}},{"data" : {"id" : "[ 4, 4, 3 ]"},"position" : {"x" : 75,"y" : 150}},{"data" : {"id" : "[ 1, 6, 3 ]"},"position" : {"x" : 75,"y" : 225}},{"data" : {"id" : "[ 11, 6, 0 ]"},"position" : {"x" : 0,"y" : 225}},{"data" : {"id" : "[ 1, 6, 3 ]"},"position" : {"x" : 75,"y" : 225}},{"data" : {"id" : "[ 8, 8, 0 ]"},"position" : {"x" : 0,"y" : 300}},{"data" : {"id" : "[ 5, 10, 0 ]"},"position" : {"x" : 0,"y" : 375}},{"data" : {"id" : "[ 2, 12, 0 ]"},"position" : {"x" : 0,"y" : 450}},{"data" : {"source" : "[ 20, 0, 0 ]","target" : "[ 10, 0, 3 ]"}},{"data" : {"source" : "[ 10, 0, 3 ]","target" : "[ 0, 0, 6 ]"}},{"data" : {"source" : "[ 10, 0, 3 ]","target" : "[ 7, 2, 3 ]"}},{"data" : {"source" : "[ 7, 2, 3 ]","target" : "[ 4, 4, 3 ]"}},{"data" : {"source" : "[ 4, 4, 3 ]","target" : "[ 1, 6, 3 ]"}},{"data" : {"source" : "[ 20, 0, 0 ]","target" : "[ 17, 2, 0 ]"}},{"data" : {"source" : "[ 17, 2, 0 ]","target" : "[ 7, 2, 3 ]"}},{"data" : {"source" : "[ 7, 2, 3 ]","target" : "[ 4, 4, 3 ]"}},{"data" : {"source" : "[ 4, 4, 3 ]","target" : "[ 1, 6, 3 ]"}},{"data" : {"source" : "[ 17, 2, 0 ]","target" : "[ 14, 4, 0 ]"}},{"data" : {"source" : "[ 14, 4, 0 ]","target" : "[ 4, 4, 3 ]"}},{"data" : {"source" : "[ 4, 4, 3 ]","target" : "[ 1, 6, 3 ]"}},{"data" : {"source" : "[ 14, 4, 0 ]","target" : "[ 11, 6, 0 ]"}},{"data" : {"source" : "[ 11, 6, 0 ]","target" : "[ 1, 6, 3 ]"}},{"data" : {"source" : "[ 11, 6, 0 ]","target" : "[ 8, 8, 0 ]"}},{"data" : {"source" : "[ 8, 8, 0 ]","target" : "[ 5, 10, 0 ]"}},{"data" : {"source" : "[ 5, 10, 0 ]","target" : "[ 2, 12, 0 ]"}}],"layout" : {"name" : "preset"},"style" : [{"style" : {"content" : "data(id)"},"selector" : "node"},{"style" : {"mid-target-arrow-shape" : "vee","arrow-scale" : 2},"selector" : "edge"}]},"height" : 400,"tool" : "cytoscape"}
+,function(element,visualization){
+});
+} )( element.get( 0 ) )</script></div>
+</div>
+<p>Trades in a numerical semigroup (or relations) can be obtained from some specific elements in the semigroup. We have seen that one of our possible trades can be choosen from a pair of expressions of 60 as combinations of 6, 9, and 20. What makes 60 special is that there are some expressions of 60 in terms of 6, 9 and 20 where only 6 and 9 show up, and another were 20 is the only size of box used.</p>
+<p>We can draw a graph with vertices the set of possible combinations (expressions, factorizations) of <span class="math notranslate nohighlight">\(n\)</span> in terms of <span class="math notranslate nohighlight">\(\lbrace s_1,\ldots, s_k\rbrace\)</span>, and there is an edge between two combinations if in the expression there is a common box used.</p>
+<p>There are several <code class="docutils literal notranslate"><span class="pre">gap</span></code> packages that offer procedures that output graphs in <code class="docutils literal notranslate"><span class="pre">dot</span></code> language. In order to make these outputs visible in the notebook one can use <code class="docutils literal notranslate"><span class="pre">JupyterSplashDot</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">JupyterSplashDot</span><span class="p">(</span><span class="n">DotEliahouGraph</span><span class="p">(</span><span class="n">FactorizationsIntegerWRTList</span><span class="p">(</span><span class="mi">60</span><span class="p">,</span><span class="n">sizes</span><span class="p">)));</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Nuggets_41_0.svg" src="../_images/Nuggets_41_0.svg" /></div>
+</div>
+<p>There are exactly two elements with nonconnected associated graph in <span class="math notranslate nohighlight">\(S\)</span>. One is 60, the other already showed up: 18.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">JupyterSplashDot</span><span class="p">(</span><span class="n">DotEliahouGraph</span><span class="p">(</span><span class="n">FactorizationsIntegerWRTList</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span><span class="n">sizes</span><span class="p">)));</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Nuggets_43_0.svg" src="../_images/Nuggets_43_0.svg" /></div>
+</div>
+<p>In order to obtain a ‘complete trade system’ that allows us to go from any combination of boxes to any other choice, we only need to take expressions in different connected components of the above graphs, so that there is a trade connecting both connected components.</p>
+<p>Another way to visualize possible combinations is through <code class="docutils literal notranslate"><span class="pre">DotFactorizationGraph</span></code> that shows the set of expressions of a nonnegative integer in terms of a given set of nonnegative integers depicted in a graph: the vertices are labelled with the different combinations, and in the edges shows the “distance” between factorizations. In red a minimal spanning tree is highlighted. The largest distance in the minimal spanning tree is known as the catenary degree of the integer in the numerical semigroup.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">JupyterSplashDot</span><span class="p">(</span><span class="n">DotFactorizationGraph</span><span class="p">(</span><span class="n">FactorizationsIntegerWRTList</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="n">sizes</span><span class="p">)));</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Nuggets_46_0.svg" src="../_images/Nuggets_46_0.svg" /></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">CatenaryDegree</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="n">S</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>7
+</pre></div>
+</div>
+</div>
+</div>
+<p>It has been shown that the catenary degree strongly depends on the trades, and that it becomes eventually periodic.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Plot</span><span class="p">(</span><span class="n">Intersection</span><span class="p">(</span><span class="n">S</span><span class="p">,[</span><span class="mf">0.</span><span class="o">.</span><span class="mi">150</span><span class="p">]),</span> <span class="n">x</span><span class="o">-&gt;</span><span class="n">CatenaryDegree</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">S</span><span class="p">),</span> 
+ <span class="n">rec</span><span class="p">(</span>
+<span class="n">title</span> <span class="o">:=</span> <span class="s2">&quot;catenary degree of elements in the semigroup&quot;</span><span class="p">,</span>
+          <span class="n">xaxis</span> <span class="o">:=</span> <span class="s2">&quot;n&quot;</span><span class="p">,</span>
+<span class="n">yaxis</span> <span class="o">:=</span> <span class="s2">&quot;catenary degree&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">:=</span><span class="s2">&quot;bar&quot;</span> <span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/javascript">( function ( element ) {
+if ( !window.JUPVIZLibs ) window.JUPVIZLibs = { };
+if ( !window.JUPVIZLibs["main"] ) {
+window.createVisualization=function(element,data,callback){if(window.VisualizationTools[data.tool])window.VisualizationTools[data.tool](element,data,callback);else{window.VisualizationTools.html(element,{data:{html:'Error: No known visualization tool, "'+data.tool+'."'}},callback)}};window.VisualizationTools={html:function(element,json,callback){var div=document.createElement("div");element.appendChild(div);div.innerHTML=json.data.html;if(json.width)$(div).width(json.width);if(json.height)$(div).height(json.height);callback(element,div)}};window.resizeToShowContents=function(element){var maxima={right:0,bottom:0};$(element).find("*").each(function(idx,elt){var $elt=$(elt);var right=$elt.position().left+$elt.outerWidth();var bottom=$elt.position().top+$elt.outerHeight();maxima={right:Math.max(right,maxima.right),bottom:Math.max(bottom,maxima.bottom)}});var $element=$(element);$element.width(maxima.right-$element.position().left);$element.height(maxima.bottom-$element.position().top)};
+    window.JUPVIZLibs["main"] = 'loaded';
+}
+if ( !window.JUPVIZLibs["viz-tool-plotly"] ) {
+window.requirejs.config({paths:{plotly:"https://cdn.plot.ly/plotly-latest.min"}});window.VisualizationTools.plotly=function(element,json,callback){require(["plotly"],function(plotly){plotly.newPlot(element,json.data);callback(element,element.childNodes[0])})};
+    window.JUPVIZLibs["viz-tool-plotly"] = 'loaded';
+}
+window.createVisualization(element,{"data" : {"data" : [{"x" : [0,6,9,12,15,18,20,21,24,26,27,29,30,32,33,35,36,38,39,40,41,42,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127,128,129,130,131,132,133,134,135,136,137,138,139,140,141,142,143,144,145,146,147,148,149,150],"y" : [0,0,0,0,0,3,0,0,3,0,3,0,3,0,3,0,3,3,3,0,0,3,3,3,0,3,3,0,3,3,0,3,3,0,3,3,3,3,7,0,3,3,3,3,7,3,3,7,3,3,7,3,3,7,3,3,7,3,7,7,3,3,7,3,7,7,3,7,7,3,7,7,3,7,7,3,7,7,7,7,7,3,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7],"type" : "bar"}],"layout" : {"height" : 400,"title" : "catenary degree of elements in the semigroup","xaxis" : {"title" : "n"},"yaxis" : {"title" : "catenary degree"}}},"tool" : "plotly"}
+,function(element,visualization){
+});
+} )( element.get( 0 ) )</script></div>
+</div>
+<p>The maximum can be computed with the trades.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">CatenaryDegree</span><span class="p">(</span><span class="n">S</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>7
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "nthiery/2020-07-13-ICMS-Jupyter",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "gap-4"
+        },
+        kernelOptions: {
+            kernelName: "gap-4",
+            path: "./Nuggets"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'gap-4'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Nicolas M. Thiéry et al.<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>
