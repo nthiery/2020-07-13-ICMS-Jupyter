@@ -2,4 +2,6 @@
 - file: overview/index.ipynb
   sections:
     - file: overview/01-ParcoursDeGraphes.ipynb
-- file: teaching/index.html
+- url: teaching/index.html
+  title: Web based notebooks for teaching, an experience at Universidad de Zaragoza
+- file: Nuggets/Nuggets.ipynb
