@@ -120,7 +120,7 @@ Birkhäuser/Springer Basel AG, Basel, 2012.
 
 - Speaker: Miguel Marco
 - [Talk](https://videoalbum59f7f8abc4694903b3b1f0a4b1f23fcc91005-master.s3-eu-west-1.amazonaws.com/public/upload/f4a110c1-4e58-4855-b26c-956510c82644.mp4)
-- [Slides](./teaching/index.html)
+- [Slides](teaching/index.md)
 
 Web based notebook interfaces to free/open source mathematical
 software have been used as a tool for teaching mathematics related
