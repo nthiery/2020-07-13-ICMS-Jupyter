@@ -1,0 +1,696 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Prototyping Controlled Mathematical Languages in Jupyter Notebooks &#8212; ICMS 2020 Session: The Jupyter Environment for Computational Mathematics</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/thebelab.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/mystnb.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../_static/thebelab.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">ICMS 2020 Session: The Jupyter Environment for Computational Mathematics</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../overview/index.html">
+   A brief overview of Jupyter and its ecosystem
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../teaching/index.html">
+   Web based notebooks for teaching, an experience at Universidad de Zaragoza
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Nuggets/Nuggets.html">
+   Nuggets and
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     gap
+    </span>
+   </code>
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/glf/PresentationGLF.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/nthiery/2020-07-13-ICMS-Jupyter"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        <a class="edit-button" href="https://github.com/nthiery/2020-07-13-ICMS-Jupyter/edit/master/glf/PresentationGLF.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/nthiery/2020-07-13-ICMS-Jupyter/master?urlpath=tree/glf/PresentationGLF.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebelabSBT()" title="Launch Thebelab" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> On this page
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#initial-remarks">
+   Initial Remarks
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#alternative-introduction">
+   Alternative Introduction
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-is-glf">
+     What is GLF?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-does-the-kernel-do">
+     What does the kernel do?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#part-1-grammar">
+     Part 1: Grammar
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#abstract-syntax">
+       Abstract Syntax
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#concrete-syntax">
+       Concrete Syntax
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#concatenating-commands">
+       Concatenating Commands
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#visualization-trees">
+       Visualization Trees
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#handling-ambiguities">
+       Handling Ambiguities
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#part-2-target-logic">
+     Part 2: Target Logic
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#part-3-semantics-construction">
+     Part 3: Semantics Construction
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#part-4-putting-it-all-together">
+     Part 4: Putting it all together
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="prototyping-controlled-mathematical-languages-in-jupyter-notebooks">
+<h1>Prototyping Controlled Mathematical Languages in Jupyter Notebooks<a class="headerlink" href="#prototyping-controlled-mathematical-languages-in-jupyter-notebooks" title="Permalink to this headline">¶</a></h1>
+<p><strong>Presentation for ICMS 2020</strong></p>
+<div class="section" id="initial-remarks">
+<h2>Initial Remarks<a class="headerlink" href="#initial-remarks" title="Permalink to this headline">¶</a></h2>
+<p>This notebooks contains the core part of the presentation and shows off the various features of the Jupyter kernel with a minimal example.
+The recorded presentation also briefly shows other notebooks for more complex examples and contains some (LaTeX) slides for the introduction and conclusion.
+Below is an alternative introduction.</p>
+</div>
+<div class="section" id="alternative-introduction">
+<h2>Alternative Introduction<a class="headerlink" href="#alternative-introduction" title="Permalink to this headline">¶</a></h2>
+<p>A <em>controlled mathematical language</em> is a formal language (with fixed semantics) that imitates natural language.
+They could be used to decrease the barrier of entry to users of mathematical software.
+We believe that this is rarely done in practice because designing such languages is very challenging.
+We also believe that the Grammatical Logical Framework (GLF) can be used to prototype such languages and present a new Jupyter interface for GLF.</p>
+<div class="section" id="what-is-glf">
+<h3>What is GLF?<a class="headerlink" href="#what-is-glf" title="Permalink to this headline">¶</a></h3>
+<p>GLF combines two existing frameworks:</p>
+<ul class="simple">
+<li><p>GF (the Grammatical Framework), which is a great tool for developing natural language grammars,</p></li>
+<li><p>and MMT, which can be used for logic development.</p></li>
+</ul>
+<p>Together, they allow us to specify a language-to-logic pipeline by describing</p>
+<ul class="simple">
+<li><p>A grammar</p></li>
+<li><p>A target logic</p></li>
+<li><p>A semantics construction (which maps abstract syntax trees to logical expressions)</p></li>
+</ul>
+</div>
+<div class="section" id="what-does-the-kernel-do">
+<h3>What does the kernel do?<a class="headerlink" href="#what-does-the-kernel-do" title="Permalink to this headline">¶</a></h3>
+<p>It starts GF and MMT in the background.
+Pattern matching is used to distinguish different types of contents:</p>
+<ul class="simple">
+<li><p>GF grammar modules are written to files and imported into the GF shell</p></li>
+<li><p>MMT content is also written to files and gets built</p></li>
+<li><p>Commands are either handed to the GF shell or are handled directly by the kernel</p></li>
+</ul>
+</div>
+<div class="section" id="part-1-grammar">
+<h3>Part 1: Grammar<a class="headerlink" href="#part-1-grammar" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="abstract-syntax">
+<h4>Abstract Syntax<a class="headerlink" href="#abstract-syntax" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">abstract</span> <span class="n">MiniGrammar</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">cat</span>
+        <span class="n">Question</span><span class="p">;</span> <span class="n">Term</span><span class="p">;</span>
+    <span class="n">fun</span>
+        <span class="n">askTerm</span> <span class="p">:</span> <span class="n">Term</span> <span class="o">-&gt;</span> <span class="n">Question</span><span class="p">;</span>
+        <span class="n">intTerm</span> <span class="p">:</span> <span class="n">Int</span> <span class="o">-&gt;</span> <span class="n">Term</span><span class="p">;</span>
+        <span class="n">multiply</span> <span class="p">:</span> <span class="n">Term</span> <span class="o">-&gt;</span> <span class="n">Term</span> <span class="o">-&gt;</span> <span class="n">Term</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>Defined MiniGrammar
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">generate_random</span> <span class="o">-</span><span class="n">cat</span><span class="o">=</span><span class="n">Question</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>askTerm (intTerm 999)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="concrete-syntax">
+<h4>Concrete Syntax<a class="headerlink" href="#concrete-syntax" title="Permalink to this headline">¶</a></h4>
+<p>Describes mapping to strings. Press <kbd>Tab</kbd> for stub generation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">MiniGrammarEng</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>Input is neither valid GF or MMT content nor a valid shell command!
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">concrete</span> <span class="n">MiniGrammarEng</span> <span class="n">of</span> <span class="n">MiniGrammar</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">lincat</span>
+        <span class="n">Question</span> <span class="o">=</span> <span class="n">Str</span><span class="p">;</span>
+        <span class="n">Term</span> <span class="o">=</span> <span class="n">Str</span><span class="p">;</span>
+    <span class="n">lin</span>
+        <span class="n">askTerm</span> <span class="n">t</span> <span class="o">=</span> <span class="s2">&quot;what is&quot;</span> <span class="o">++</span> <span class="n">t</span><span class="p">;</span>
+        <span class="n">intTerm</span> <span class="n">i</span> <span class="o">=</span> <span class="n">i</span><span class="o">.</span><span class="n">s</span><span class="p">;</span>
+        <span class="n">multiply</span> <span class="n">a</span> <span class="n">b</span> <span class="o">=</span> <span class="n">a</span> <span class="o">++</span> <span class="s2">&quot;*&quot;</span> <span class="o">++</span> <span class="n">b</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">parse</span> <span class="o">-</span><span class="n">cat</span><span class="o">=</span><span class="n">Question</span> <span class="s2">&quot;what is 2 * 3&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>askTerm (multiply (intTerm 2) (intTerm 3))
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="concatenating-commands">
+<h4>Concatenating Commands<a class="headerlink" href="#concatenating-commands" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">generate_random</span> <span class="o">-</span><span class="n">cat</span><span class="o">=</span><span class="n">Question</span> <span class="o">-</span><span class="n">depth</span><span class="o">=</span><span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>askTerm (multiply (intTerm 999) (intTerm 999))
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">linearize</span> <span class="n">askTerm</span> <span class="p">(</span><span class="n">multiply</span> <span class="p">(</span><span class="n">intTerm</span> <span class="mi">999</span><span class="p">)</span> <span class="p">(</span><span class="n">intTerm</span> <span class="mi">999</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>what is 999 * 999
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">generate_random</span> <span class="o">-</span><span class="n">cat</span><span class="o">=</span><span class="n">Question</span> <span class="o">-</span><span class="n">depth</span><span class="o">=</span><span class="mi">3</span> <span class="o">-</span><span class="n">number</span><span class="o">=</span><span class="mi">5</span> <span class="o">|</span> <span class="n">linearize</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>what is 999
+</pre></div>
+</div>
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>what is 999
+</pre></div>
+</div>
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>what is 999 * 999
+</pre></div>
+</div>
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>what is 999 * 999
+</pre></div>
+</div>
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>what is 999
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="visualization-trees">
+<h4>Visualization Trees<a class="headerlink" href="#visualization-trees" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">parse</span> <span class="o">-</span><span class="n">cat</span><span class="o">=</span><span class="n">Question</span> <span class="s2">&quot;what is 2 * 3&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>askTerm (multiply (intTerm 2) (intTerm 3))
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">parse</span> <span class="o">-</span><span class="n">cat</span><span class="o">=</span><span class="n">Question</span> <span class="s2">&quot;what is 2 * 3&quot;</span> <span class="o">|</span> <span class="n">vt</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>graph {
+n0[label = &quot;askTerm : Question&quot;, style = &quot;solid&quot;, shape = &quot;plaintext&quot;] ;
+n0_0[label = &quot;multiply : Term&quot;, style = &quot;solid&quot;, shape = &quot;plaintext&quot;] ;
+n0 -- n0_0 [style = &quot;solid&quot;];
+n0_0_0[label = &quot;intTerm : Term&quot;, style = &quot;solid&quot;, shape = &quot;plaintext&quot;] ;
+n0_0 -- n0_0_0 [style = &quot;solid&quot;];
+n0_0_0_0[label = &quot;2&quot;, style = &quot;solid&quot;, shape = &quot;plaintext&quot;] ;
+n0_0_0 -- n0_0_0_0 [style = &quot;solid&quot;];
+n1_0_0[label = &quot;intTerm : Term&quot;, style = &quot;solid&quot;, shape = &quot;plaintext&quot;] ;
+n0_0 -- n1_0_0 [style = &quot;solid&quot;];
+n0_1_0_0[label = &quot;3&quot;, style = &quot;solid&quot;, shape = &quot;plaintext&quot;] ;
+n1_0_0 -- n0_1_0_0 [style = &quot;solid&quot;];
+}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">parse</span> <span class="o">-</span><span class="n">cat</span><span class="o">=</span><span class="n">Question</span> <span class="s2">&quot;what is 2 * 3&quot;</span> <span class="o">|</span> <span class="n">vt</span> <span class="o">|</span> <span class="n">show</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "e9af7fd4f88342559d655d6c1c4611f7", "version_major": 2, "version_minor": 0}
+</script></div>
+</div>
+</div>
+<div class="section" id="handling-ambiguities">
+<h4>Handling Ambiguities<a class="headerlink" href="#handling-ambiguities" title="Permalink to this headline">¶</a></h4>
+<p>Two ways of putting parentheses:</p>
+<ul class="simple">
+<li><p>(2 * 3) * 4</p></li>
+<li><p>2 * (3 * 4)</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">parse</span> <span class="o">-</span><span class="n">cat</span><span class="o">=</span><span class="n">Question</span> <span class="s2">&quot;what is 2 * 3 * 4&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>askTerm (multiply (intTerm 2) (multiply (intTerm 3) (intTerm 4)))
+</pre></div>
+</div>
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>askTerm (multiply (multiply (intTerm 2) (intTerm 3)) (intTerm 4))
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">parse</span> <span class="o">-</span><span class="n">cat</span><span class="o">=</span><span class="n">Question</span> <span class="s2">&quot;what is 2 * 3 * 4&quot;</span> <span class="o">|</span> <span class="n">vp</span> <span class="o">-</span><span class="n">showfun</span> <span class="o">|</span> <span class="n">show</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>2 graphs generated
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "278cbd65a728417d95d4419a6c7790b7", "version_major": 2, "version_minor": 0}
+</script><script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "331fa1015db3462bbefce03e0724e5aa", "version_major": 2, "version_minor": 0}
+</script></div>
+</div>
+</div>
+</div>
+<div class="section" id="part-2-target-logic">
+<h3>Part 2: Target Logic<a class="headerlink" href="#part-2-target-logic" title="Permalink to this headline">¶</a></h3>
+<p>Target logic and domain theory are entered as MMT theories.</p>
+<p>Unicode characters can be entered via tab-completion.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>theory Target : ur:?LF =
+    include ☞http://cds.omdoc.org/urtheories?NatSymbols ❙
+    multiplication : NAT ⟶ NAT ⟶ NAT ❘ # 1 ⋅ 2 ❙
+❚
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>Created theory Target
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="part-3-semantics-construction">
+<h3>Part 3: Semantics Construction<a class="headerlink" href="#part-3-semantics-construction" title="Permalink to this headline">¶</a></h3>
+<p>Mapping ASTs to logical expressions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">MiniGrammarSemantics</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>Input is neither valid GF or MMT content nor a valid shell command!
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>view MiniGrammarSemantics : http://mathhub.info/comma/jupyter/sage/MiniGrammar.gf?MiniGrammar -&gt; ?Target =
+    NAT = NAT ❙
+    Question = NAT ❙
+    Term = NAT ❙
+
+    askTerm = [x] x ❙
+    intTerm = [x] x ❙
+    multiply = [a,b] a ⋅ b ❙
+❚
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>Created view MiniGrammarSemantics
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="part-4-putting-it-all-together">
+<h3>Part 4: Putting it all together<a class="headerlink" href="#part-4-putting-it-all-together" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">parse</span> <span class="o">-</span><span class="n">cat</span><span class="o">=</span><span class="n">Question</span> <span class="s2">&quot;what is 2 * 3&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>askTerm (multiply (intTerm 2) (intTerm 3))
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">parse</span> <span class="o">-</span><span class="n">cat</span><span class="o">=</span><span class="n">Question</span> <span class="s2">&quot;what is 2 * 3&quot;</span> <span class="o">|</span> <span class="n">construct</span> <span class="o">-</span><span class="n">e</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>(multiplication 2 3)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">parse</span> <span class="o">-</span><span class="n">cat</span><span class="o">=</span><span class="n">Question</span> <span class="s2">&quot;what is 2 * 3&quot;</span> <span class="o">|</span> <span class="n">construct</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>2⋅3
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">parse</span> <span class="o">-</span><span class="n">cat</span><span class="o">=</span><span class="n">Question</span> <span class="s2">&quot;what is 2 * 3 * 4&quot;</span> <span class="o">|</span> <span class="n">construct</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>2⋅(3⋅4)
+</pre></div>
+</div>
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>(2⋅3)⋅4
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "nthiery/2020-07-13-ICMS-Jupyter",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "glif"
+        },
+        kernelOptions: {
+            kernelName: "glif",
+            path: "./glf"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'glif'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Nicolas M. Thiéry et al.<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>
